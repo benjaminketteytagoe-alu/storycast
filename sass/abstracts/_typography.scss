@@ -1,0 +1,52 @@
+@use 'sass:map';
+@use 'sass:list';
+
+// =============================================================================
+// Typography tokens — Material 3 type scale, set in Google Sans Flex
+// -----------------------------------------------------------------------------
+// Display and headline sizes are fluid (clamp) so they scale smoothly between
+// a 360px phone and a 1440px desktop. Body copy never drops below 1rem and
+// line-height stays ≥ 1.5 for comfortable reading (WCAG 1.4.12).
+// =============================================================================
+
+$font-brand: 'Google Sans Flex', 'Google Sans', 'Roboto Flex', Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif;
+$font-plain: 'Google Sans Flex', 'Google Sans', Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif;
+$font-mono:  'Google Sans Code', 'Roboto Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+$weight-regular: 400;
+$weight-medium:  500;
+$weight-bold:    650;
+
+// role: (size, line-height, weight, tracking)
+$scale: (
+  'display-large':   (clamp(2.75rem, 1.6rem + 4.2vw, 4.5rem), 1.08, 500, -0.02em),
+  'display-medium':  (clamp(2.25rem, 1.5rem + 3vw, 3.25rem),  1.12, 500, -0.015em),
+  'display-small':   (clamp(1.875rem, 1.4rem + 1.8vw, 2.5rem), 1.18, 500, -0.01em),
+  'headline-large':  (clamp(1.75rem, 1.45rem + 1.1vw, 2.125rem), 1.22, 500, -0.005em),
+  'headline-medium': (clamp(1.5rem, 1.3rem + 0.7vw, 1.75rem), 1.28, 500, 0),
+  'headline-small':  (1.5rem,   1.33, 500, 0),
+  'title-large':     (1.375rem, 1.3,  500, 0),
+  'title-medium':    (1.0625rem, 1.5, 600, 0.005em),
+  'title-small':     (0.9375rem, 1.45, 600, 0.01em),
+  'body-large':      (1.125rem, 1.65, 400, 0.005em),
+  'body-medium':     (1rem,     1.6,  400, 0.01em),
+  'body-small':      (0.875rem, 1.5,  400, 0.02em),
+  'label-large':     (0.9375rem, 1.35, 600, 0.01em),
+  'label-medium':    (0.8125rem, 1.35, 600, 0.03em),
+  'label-small':     (0.75rem,  1.35, 600, 0.04em),
+);
+
+/// Apply a Material type role.
+/// @example scss  @include type.role('headline-large');
+@mixin role($name) {
+  $spec: map.get($scale, $name);
+  @if not $spec {
+    @error 'Unknown type role `#{$name}`.';
+  }
+  font-size: list.nth($spec, 1);
+  line-height: list.nth($spec, 2);
+  font-weight: list.nth($spec, 3);
+  letter-spacing: list.nth($spec, 4);
+}
+
+$measure: 68ch; // comfortable reading line length

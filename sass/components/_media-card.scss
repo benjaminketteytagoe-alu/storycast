@@ -1,0 +1,283 @@
+@use '../abstracts' as *;
+
+// =============================================================================
+// Media card — container-queried component
+// -----------------------------------------------------------------------------
+// The card responds to the width of ITS OWN container, not the viewport, so
+// the exact same markup works in a wide "featured" slot, a grid cell, and the
+// narrow "Up next" sidebar on story pages:
+//
+//   < 18.5rem   → compact list row (small square thumbnail beside the text)
+//   18.5–40rem  → classic stacked card (16:9 thumbnail on top)
+//   ≥ 40rem     → wide horizontal card (thumbnail left, roomy body right)
+// =============================================================================
+
+.card-shell {
+  container-type: inline-size;
+  container-name: media-card;
+  height: 100%;
+}
+
+.media-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: space(3) space(4);
+  align-items: center;
+  height: 100%;
+  padding: space(3);
+  border-radius: corner('lg');
+  background: color-role('surface-container-low');
+  color: color-role('on-surface');
+  transition:
+    background-color $duration-medium $ease-standard,
+    box-shadow $duration-medium $ease-standard,
+    transform $duration-medium $ease-emphasized;
+
+  &:hover {
+    background: color-role('surface-container');
+    box-shadow: var(--sc-elev-2);
+  }
+
+  @include motion-safe {
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:hover .media-card__img {
+      transform: scale(1.045);
+    }
+  }
+
+  // The whole card is clickable through the title link's stretched overlay,
+  // so there is one tab stop and one clear accessible name per card.
+  &:focus-within {
+    @include focus-ring(2px);
+  }
+
+  &__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    border-radius: corner('md');
+    background: color-role('surface-container-highest');
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $duration-long $ease-emphasized;
+  }
+
+  &__play {
+    position: absolute;
+    inset: auto auto space(2) space(2);
+    display: none;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: corner('lg');
+    background: color-role('primary');
+    color: color-role('on-primary');
+    box-shadow: var(--sc-elev-2);
+
+    .icon {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__duration {
+    position: absolute;
+    inset: space(2) space(2) auto auto;
+    display: none;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: space(1);
+    min-width: 0;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: space(2);
+    color: color-role('on-surface-variant');
+    @include type-role('label-medium');
+  }
+
+  &__kind {
+    display: inline-flex;
+    align-items: center;
+    gap: space(1);
+    font-weight: 650;
+
+    .icon {
+      font-size: 1rem;
+    }
+
+    &--video {
+      color: color-role('tertiary');
+    }
+
+    &--audio {
+      color: color-role('secondary');
+    }
+  }
+
+  &__title {
+    @include type-role('title-medium');
+    font-family: $type-font-brand;
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: inherit;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &__summary,
+  &__features {
+    display: none;
+  }
+
+  &__summary {
+    color: color-role('on-surface-variant');
+  }
+
+  // ---------------------------------------------------------------- stacked
+  @container media-card (min-width: 18.5rem) {
+    grid-template-columns: 1fr;
+    align-items: start;
+    align-content: start;
+    padding: space(3) space(3) space(5);
+    border-radius: corner('xl');
+
+    &__media {
+      aspect-ratio: 16 / 9;
+      border-radius: corner('lg');
+    }
+
+    &__play,
+    &__duration {
+      display: inline-grid;
+    }
+
+    &__duration {
+      display: inline-flex;
+    }
+
+    &__body {
+      gap: space(2);
+      padding-inline: space(2);
+    }
+
+    &__title {
+      @include type-role('title-large');
+    }
+
+    &__summary {
+      display: block;
+      @include type-role('body-medium');
+    }
+  }
+
+  // ------------------------------------------------------------- horizontal
+  @container media-card (min-width: 40rem) {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: space(8);
+    padding: space(4);
+    border-radius: corner('xxl');
+
+    &__media {
+      aspect-ratio: 4 / 3;
+      border-radius: corner('xl');
+    }
+
+    &__play {
+      width: 4rem;
+      height: 4rem;
+      inset: auto auto space(4) space(4);
+      border-radius: corner('xl');
+
+      .icon {
+        font-size: 2.25rem;
+      }
+    }
+
+    &__body {
+      gap: space(3);
+      padding: space(4) space(4) space(4) 0;
+    }
+
+    &__title {
+      @include type-role('headline-large');
+    }
+
+    &__summary {
+      @include type-role('body-large');
+    }
+
+    &__features {
+      display: flex;
+      margin-block-start: space(2);
+    }
+  }
+
+  // Featured card sits on a slightly stronger tonal surface.
+  &--featured {
+    background: color-role('surface-container');
+
+  }
+
+  @media (forced-colors: active) {
+    border: 1px solid CanvasText;
+  }
+}
+
+// Card collections — the grid is itself a container, so its column count
+// follows the space it is given (not the viewport). Column breakpoints are
+// chosen so every cell stays inside the card's "stacked" range.
+.card-grid-wrap {
+  container-type: inline-size;
+  container-name: card-grid;
+}
+
+.card-grid {
+  display: grid;
+  gap: space(6);
+  grid-template-columns: minmax(0, 1fr);
+  list-style: none;
+  padding: 0;
+
+  @container card-grid (min-width: 40rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @container card-grid (min-width: 78.5rem) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.card-stack {
+  display: grid;
+  gap: space(3);
+  list-style: none;
+  padding: 0;
+}

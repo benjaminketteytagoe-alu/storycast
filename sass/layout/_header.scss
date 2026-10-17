@@ -1,0 +1,164 @@
+@use '../abstracts' as *;
+
+// -----------------------------------------------------------------------------
+// Top app bar (Material 3 "small top app bar" + navigation tabs)
+// -----------------------------------------------------------------------------
+.app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-role('surface');
+  border-bottom: 1px solid transparent;
+  transition: border-color $duration-medium $ease-standard, box-shadow $duration-medium $ease-standard;
+
+  &.is-scrolled {
+    border-color: color-role('outline-variant');
+    box-shadow: var(--sc-elev-1);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: space(3);
+    min-height: 4.5rem;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: space(1);
+    margin-inline-start: auto;
+  }
+}
+
+// Brand lockup
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: space(3);
+  padding: space(1) space(2) space(1) space(1);
+  margin-inline-start: calc(#{space(1)} * -1);
+  border-radius: corner('full');
+  color: color-role('on-surface');
+  text-decoration: none;
+  font-family: $type-font-brand;
+  @include type-role('title-large');
+  font-weight: 650;
+  letter-spacing: -0.01em;
+
+  &__mark {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: none;
+  }
+
+  &__accent {
+    color: color-role('primary');
+  }
+}
+
+// Primary navigation
+.site-nav {
+  &__list {
+    display: flex;
+    gap: space(1);
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    @include state-layer;
+    display: inline-flex;
+    align-items: center;
+    gap: space(2);
+    min-height: $touch-target;
+    padding-inline: space(4) space(5);
+    border-radius: corner('full');
+    color: color-role('on-surface-variant');
+    text-decoration: none;
+    @include type-role('label-large');
+    transition: background-color $duration-medium $ease-standard, color $duration-medium $ease-standard;
+
+    .icon {
+      font-size: 1.375rem;
+      transition: font-variation-settings $duration-medium $ease-standard;
+    }
+
+    &:hover {
+      color: color-role('on-surface');
+    }
+
+    // Active destination: secondary-container pill with a filled icon.
+    &[aria-current='page'] {
+      background: color-role('secondary-container');
+      color: color-role('on-secondary-container');
+
+      .icon {
+        font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      }
+    }
+
+    @media (forced-colors: active) {
+      &[aria-current='page'] {
+        outline: 2px solid Highlight;
+      }
+    }
+  }
+}
+
+.app-bar .menu-toggle {
+  display: none;
+}
+
+// Compact layout: the navigation collapses into a disclosure panel.
+@media (max-width: 52.49rem) {
+  .js .app-bar .menu-toggle {
+    display: inline-grid;
+  }
+
+  .js .site-nav {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    padding: space(3) $gutter space(5);
+    background: color-role('surface-container');
+    border-bottom: 1px solid color-role('outline-variant');
+    box-shadow: var(--sc-elev-2);
+    border-radius: 0 0 corner('xl') corner('xl');
+
+    &:not(.is-open) {
+      display: none;
+    }
+  }
+
+  .js .site-nav__list {
+    flex-direction: column;
+  }
+
+  .js .site-nav__link {
+    width: 100%;
+    min-height: 3.5rem;
+  }
+
+  // Without JavaScript the links simply wrap below the brand.
+  html:not(.js) .app-bar__inner {
+    flex-wrap: wrap;
+    padding-block: space(2);
+  }
+
+  html:not(.js) .site-nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@include up('md') {
+  .site-nav {
+    margin-inline-start: auto;
+  }
+
+  .app-bar__actions {
+    margin-inline-start: space(2);
+  }
+}

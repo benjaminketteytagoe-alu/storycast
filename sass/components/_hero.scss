@@ -1,0 +1,102 @@
+@use '../abstracts' as *;
+
+// -----------------------------------------------------------------------------
+// Home hero — flat Material 3 surface: solid primary panel, white text
+// (7.7:1), and a photo on the right.
+// -----------------------------------------------------------------------------
+.hero {
+  padding-block: space(6) 0;
+
+  &__panel {
+    display: grid;
+    gap: space(10);
+    padding: clamp(2rem, 1rem + 4vw, 4.5rem);
+    border-radius: corner('xxl');
+    background: color-role('primary');
+    color: color-role('on-primary');
+
+    @include up('md') {
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  &__eyebrow {
+    @include type-role('label-large');
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  &__title {
+    margin-block: space(4) space(5);
+    color: inherit;
+    @include type-role('display-large');
+  }
+
+  &__text {
+    max-width: 34rem;
+    @include type-role('body-large');
+  }
+
+  .btn-row {
+    margin-block-start: space(8);
+  }
+
+  &__figure {
+    overflow: hidden;
+    border-radius: corner('xl');
+    background: color-role('primary-container');
+
+    img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    figcaption {
+      padding: space(3) space(4);
+      @include type-role('body-small');
+      color: color-role('on-primary-container');
+    }
+  }
+
+  // Looping background clip (muted, pausable, off under reduced motion)
+  &__video-wrap {
+    position: relative;
+  }
+
+  &__video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__video-toggle {
+    position: absolute;
+    inset-block-end: space(3);
+    inset-inline-end: space(3);
+    background: rgb(0 0 0 / 0.75);
+    color: #ffffff;
+  }
+}
+
+// Page hero (About) — solid tonal container
+.page-hero {
+  margin-block-start: space(6);
+  padding: clamp(2rem, 1rem + 4vw, 4.5rem);
+  border-radius: corner('xxl');
+  background: color-role('primary-container');
+  color: color-role('on-primary-container');
+
+  h1 {
+    @include type-role('display-medium');
+    color: inherit;
+    max-width: 22ch;
+  }
+
+  .lede,
+  .eyebrow {
+    color: inherit;
+  }
+}

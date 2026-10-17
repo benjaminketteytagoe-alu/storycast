@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>StoryCast: Research &amp; Planning</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;display=swap">
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  body { font: 11pt/1.55 'Google Sans Flex', Roboto, Arial, sans-serif; color: #1b1b21; margin: 0; }
+  h1 { font-size: 26pt; margin: 0 0 4pt; color: #4a35d0; }
+  h2 { font-size: 15pt; margin: 22pt 0 6pt; color: #4a35d0; break-after: avoid; }
+  h3 { font-size: 12pt; margin: 12pt 0 4pt; break-after: avoid; }
+  p, li { margin: 0 0 6pt; }
+  .meta { color: #47464f; margin-bottom: 14pt; }
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 10pt; }
+  th, td { border: 1px solid #c8c5d0; padding: 5pt 7pt; text-align: left; vertical-align: top; }
+  th { background: #f0ecf7; }
+  .persona { border: 1px solid #c8c5d0; border-radius: 10pt; padding: 8pt 12pt; margin-bottom: 8pt; break-inside: avoid; }
+  .todo { background: #ffd9e3; color: #3e001c; padding: 6pt 10pt; border-radius: 6pt; }
+  img.sitemap { width: 100%; border: 1px solid #c8c5d0; border-radius: 8pt; }
+  /* Low-fidelity wireframes */
+  .wf-row { display: flex; gap: 10pt; break-inside: avoid; margin-bottom: 10pt; }
+  .wf { flex: 1; border: 1.5px solid #47464f; border-radius: 6pt; padding: 6pt; font-size: 8pt; color: #47464f; }
+  .wf h4 { margin: 0 0 5pt; font-size: 9pt; color: #1b1b21; }
+  .b { border: 1px dashed #777680; border-radius: 4pt; padding: 4pt; margin-bottom: 4pt; text-align: center; background: #f6f2fc; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt; }
+  .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4pt; }
+  .g31 { display: grid; grid-template-columns: 3fr 1fr; gap: 4pt; }
+  .tall { height: 46pt; display: grid; place-items: center; }
+</style>
+</head>
+<body>
+<h1>StoryCast: Research &amp; Planning</h1>
+<p class="meta">Everyday People: an accessible audio and video storytelling microsite · Formative assessment</p>
+
+<h2>1. Problem statement</h2>
+<p>Short everyday stories, whether told in words, in sound or in pictures, are often hard to follow for people who are Deaf or hard of hearing, blind or partially sighted, neurodivergent, or who simply can't play sound. Captions are often missing, transcripts are hard to find, and silent or visual-only video is rarely described.</p>
+<p><strong>Goal:</strong> a small, calm, three-page-type microsite where every story can be watched, heard <em>or</em> read, built with semantic HTML, Sass and vanilla JavaScript, meeting WCAG 2.1 AA.</p>
+
+<h2>2. Audience &amp; proto-personas</h2>
+<p>These personas are assumptions I drew from the brief and WCAG user needs.</p>
+<div class="persona"><h3>Amina, 34: Deaf, BSL user</h3><p>Watches on her phone on the bus. Needs accurate captions that include sound cues, and a transcript she can skim. Frustrated when captions are off by default.</p></div>
+<div class="persona"><h3>David, 58: blind, screen reader user (NVDA)</h3><p>Navigates by headings and landmarks. Needs real buttons with clear names, audio description for visual-only content, and no keyboard traps in media players.</p></div>
+<div class="persona"><h3>Leo, 19: student with ADHD</h3><p>Prefers short content and reading along. Distracted by motion and autoplay. Values a predictable layout and a visible "where am I" in the transcript.</p></div>
+
+<h2>3. Content strategy</h2>
+<table>
+  <tr><th>Story</th><th>Type</th><th>Source</th><th>Why it's included</th></tr>
+  <tr><td>The Long Walk</td><td>Video (native &lt;video&gt;), 0:48, silent</td><td>Cloudinary sample library</td><td>Featured story. A silent clip, so the audio description and transcript carry the whole story.</td></tr>
+  <tr><td>Wall Dance</td><td>Video (native &lt;video&gt;), 0:11, silent</td><td>Cloudinary sample library</td><td>A person telling a story through movement rather than words.</td></tr>
+  <tr><td>Slow Swim</td><td>Video (native &lt;video&gt;), 0:15, silent</td><td>Cloudinary sample library</td><td>A short, calm clip that is a gentle first try of audio description.</td></tr>
+  <tr><td>Dawn Chorus</td><td>Audio (native &lt;audio&gt;), 0:45</td><td>StoryCast original</td><td>An audio story with a captions track and an interactive transcript.</td></tr>
+</table>
+
+<h2>4. Pattern review</h2>
+<table>
+  <tr><th>Reference</th><th>What works</th><th>What StoryCast does differently</th></tr>
+  <tr><td>YouTube watch page</td><td>Familiar player, "Up next" list, transcript panel</td><td>Transcript is visible by default in a tab, not hidden in a menu</td></tr>
+  <tr><td>Story and podcast sites</td><td>Strong human stories, transcripts on some pages</td><td>Every story page has the same structure: media → transcript → about → credits</td></tr>
+  <tr><td>Podcast apps</td><td>Simple play controls, chapters</td><td>Timestamped transcript lines act as chapters and seek the media</td></tr>
+</table>
+
+<h2>5. Information architecture</h2>
+<p>Three page types: <strong>Home</strong>, <strong>Story (detail)</strong> ×4, and <strong>About &amp; Access</strong>. The global navigation has three items, each at most one click away from any page.</p>
+<img class="sitemap" src="sitemap.svg" alt="Sitemap: Home links to four story pages and About and Access; all pages share the header and footer; story pages link to each other through Up next.">
+
+<h2>6. Wireframes (low fidelity)</h2>
+<div class="wf-row">
+  <div class="wf"><h4>Home</h4>
+    <div class="b">Header: logo · Home · Stories · About · theme</div>
+    <div class="g2"><div class="b tall">H1 + intro + 2 buttons</div><div class="b tall">Looping video (muted, pause button)</div></div>
+    <div class="b">Featured story card (horizontal)</div>
+    <div class="b">Filter chips: All / Video / Audio</div>
+    <div class="g4"><div class="b">Card</div><div class="b">Card</div><div class="b">Card</div><div class="b">Card</div></div>
+    <div class="g2"><div class="b">Feature</div><div class="b">Feature</div><div class="b">Feature</div></div>
+    <div class="b">Call to action → About #engage</div>
+    <div class="b">Footer</div>
+  </div>
+  <div class="wf"><h4>Story (detail)</h4>
+    <div class="b">Header</div>
+    <div class="b">Breadcrumb</div>
+    <div class="b">Chips · H1 · summary · byline</div>
+    <div class="g31"><div><div class="b tall">Video / audio player</div><div class="b">Access toolbar: Captions · AD · Follow</div><div class="b">Tabs: Transcript | About | Credits</div><div class="b tall">Transcript list (timestamps)</div></div><div><div class="b">Up next (list cards)</div><div class="b">At a glance</div></div></div>
+    <div class="b">Footer</div>
+  </div>
+  <div class="wf"><h4>About &amp; Access</h4>
+    <div class="b">Header</div>
+    <div class="b">H1 + intro + on-page links</div>
+    <div class="g2"><div class="b tall">Mission text</div><div class="b tall">Photo + quote</div></div>
+    <div class="g2"><div class="b">Feature</div><div class="b">Feature</div><div class="b">Feature</div><div class="b">Feature</div><div class="b">Feature</div><div class="b">Feature</div></div>
+    <div class="b">4 steps: how to engage</div>
+    <div class="g2"><div class="b tall">Contact info</div><div class="b tall">Feedback form</div></div>
+    <div class="b">Accessibility statement</div>
+    <div class="b">Footer</div>
+  </div>
+</div>
+<p>Mobile: every layout collapses to one column, the navigation becomes a menu button, and "Up next" moves below the transcript.</p>
+<p><strong>High-fidelity mockups (Figma):</strong> <a href="https://www.figma.com/design/GPUgX9O6oZdRDJkFPEPqra">https://www.figma.com/design/GPUgX9O6oZdRDJkFPEPqra</a></p>
+<p><strong>Wireframes (Figma):</strong> <a href="https://www.figma.com/design/GPUgX9O6oZdRDJkFPEPqra?node-id=19-2">https://www.figma.com/design/GPUgX9O6oZdRDJkFPEPqra?node-id=19-2</a></p>
+
+<h2>7. Design system</h2>
+<ul>
+  <li><strong>Style:</strong> Google Material 3: flat tonal surfaces, rounded shapes, pill navigation, state layers. No gradients.</li>
+  <li><strong>Colour roles:</strong> primary indigo <code>#4a35d0</code>, secondary teal <code>#006b5f</code> (audio), tertiary magenta <code>#ad1660</code> (video), with light and dark schemes. Every text pairing ≥ 4.5:1.</li>
+  <li><strong>Type:</strong> Google Sans Flex, Material type scale, fluid display sizes, body ≥ 16px.</li>
+  <li><strong>Spacing:</strong> 4px grid; 48px minimum touch targets.</li>
+  <li><strong>Icons:</strong> Material Symbols Rounded, always decorative and paired with text.</li>
+</ul>
+
+<h2>8. Accessibility approach &amp; test plan</h2>
+<table>
+  <tr><th>Check</th><th>Method</th></tr>
+  <tr><td>Automated WCAG 2.1 A/AA rules</td><td>axe-core on every page, light + dark, 1440px + 390px</td></tr>
+  <tr><td>Colour contrast</td><td>Script checks every token pairing in <code>_colors.scss</code></td></tr>
+  <tr><td>Keyboard</td><td>Tab through each page; tabs (arrow keys), menu (Esc), player shortcuts</td></tr>
+  <tr><td>Screen reader</td><td>NVDA + Firefox, VoiceOver + Safari (to do with real users)</td></tr>
+  <tr><td>Zoom / reflow</td><td>320px width and 400% zoom without horizontal scroll</td></tr>
+</table>
+</body>
+</html>

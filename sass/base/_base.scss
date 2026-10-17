@@ -1,0 +1,90 @@
+@use '../abstracts' as *;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; // keep anchored headings clear of the sticky app bar
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: $type-font-plain;
+  @include type-role('body-medium');
+  color: color-role('on-surface');
+  background-color: color-role('surface');
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $type-font-brand;
+  color: color-role('on-surface');
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: color-role('primary');
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+  transition: color $duration-short $ease-standard;
+
+  &:hover {
+    text-decoration-thickness: 0.14em;
+  }
+}
+
+strong {
+  font-weight: $type-weight-bold;
+}
+
+code,
+kbd {
+  font-family: $type-font-mono;
+  font-size: 0.9em;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.8em;
+  padding: 0.1em 0.5em;
+  text-align: center;
+  border-radius: corner('sm');
+  background: color-role('surface-container-highest');
+  color: color-role('on-surface');
+  border: 1px solid color-role('outline-variant');
+  border-bottom-width: 3px;
+  font-weight: $type-weight-medium;
+}
+
+::selection {
+  background: color-role('primary-container');
+  color: color-role('on-primary-container');
+}
+
+// One consistent, highly visible focus indicator for every focusable thing.
+:focus-visible {
+  @include focus-ring;
+  border-radius: corner('sm');
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid color-role('outline-variant');
+}

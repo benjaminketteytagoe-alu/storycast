@@ -1,0 +1,221 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>StoryCast: Documentation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;display=swap">
+<style>@page{size:A4;margin:18mm 16mm}body{font:10.5pt/1.5 'Google Sans Flex',Roboto,Arial,sans-serif;color:#1b1b21}h1{color:#4a35d0;font-size:24pt}h2{color:#4a35d0;font-size:15pt;margin-top:20pt;break-after:avoid}h3{break-after:avoid}
+table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:6pt 0}th,td{border:1px solid #c8c5d0;padding:4pt 6pt;text-align:left;vertical-align:top}th{background:#f0ecf7}tr{break-inside:avoid}
+pre{background:#f6f2fc;border:1px solid #c8c5d0;border-radius:6pt;padding:8pt;font-size:8.5pt;white-space:pre-wrap;break-inside:avoid}code{font-family:'Roboto Mono',monospace}a{color:#4a35d0}</style></head><body><h1>StoryCast: Everyday Voices</h1>
+<p>An accessible, three-page-type microsite for short audio and video stories told by ordinary people. It is built with semantic HTML5, Sass and vanilla JavaScript (no frameworks), styled after Google&#39;s Material 3 design system, and targets <strong>WCAG 2.1 AA</strong>.</p>
+<h2>Deliverables</h2>
+<table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Research document (PDF)</td>
+<td><a href="research.pdf"><code>docs/research.pdf</code></a> (source: <code>docs/research.html</code>)</td>
+</tr>
+<tr>
+<td>Sitemap (diagram)</td>
+<td><a href="sitemap.svg"><code>docs/sitemap.svg</code></a></td>
+</tr>
+<tr>
+<td>Wireframes (link)</td>
+<td><a href="https://www.figma.com/design/GPUgX9O6oZdRDJkFPEPqra?node-id=19-2">Wireframes page on Figma</a>: Home, Story and About &amp; Access, desktop and mobile (also in the research PDF, section 6)</td>
+</tr>
+<tr>
+<td>High-fidelity mockups (link)</td>
+<td><a href="https://www.figma.com/design/GPUgX9O6oZdRDJkFPEPqra">StoryCast: Everyday Voices on Figma</a>: all 6 pages at desktop (1440px) and mobile (390px)</td>
+</tr>
+<tr>
+<td>Documentation (PDF)</td>
+<td><a href="documentation.pdf"><code>docs/documentation.pdf</code></a></td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>this repository</td>
+</tr>
+</tbody></table>
+<h2>Sitemap</h2>
+<img src="sitemap.svg" alt="StoryCast sitemap" style="width:100%">
+
+<p>Every page shares the same header (skip link, Home, Stories, About &amp; access, theme toggle) and footer.</p>
+<h2>Project structure</h2>
+<pre><code>storycast/
+├── index.html              
+├── about.html              
+├── favicon.svg             
+├── story/                  
+│   ├── the-long-walk.html      
+│   ├── wall-dance.html         
+│   ├── slow-swim.html          
+│   └── dawn-chorus.html        
+├── sass/
+│   ├── main.scss           
+│   ├── abstracts/          
+│   ├── base/               
+│   ├── layout/             
+│   ├── components/         
+│   │                       
+│   └── pages/              
+├── css/main.css            
+├── js/main.js              
+├── assets/
+│   ├── media/              
+│   ├── captions/           
+│   ├── transcripts/        
+│   └── images/             
+└── docs/                   
+</code></pre>
+<h3>Container query</h3>
+<p>The <strong>media card</strong> (<code>sass/components/_media-card.scss</code>) responds to the width of its own container, not the viewport:</p>
+<table>
+<thead>
+<tr>
+<th>Container width</th>
+<th>Layout</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>under 18.5rem</td>
+<td>Compact list row: small thumbnail beside the title (used for &quot;Up next&quot;)</td>
+</tr>
+<tr>
+<td>18.5rem to 40rem</td>
+<td>Stacked card: 16:9 thumbnail above the text (used in the story grid)</td>
+</tr>
+<tr>
+<td>40rem and up</td>
+<td>Horizontal card with summary and access chips (used for the featured story)</td>
+</tr>
+</tbody></table>
+<p>The story grid on the home page is also a container (<code>card-grid</code>): it switches from 1 to 2 to 4 columns based on its own width.</p>
+<h2>Running locally</h2>
+<p>Requirements: Node.js 18+.</p>
+<pre><code class="language-bash">npm install        
+npm run build      
+npm run serve      
+npm run watch      
+</code></pre>
+<p>Use a local server rather than opening the files directly: browsers block caption files (<code>&lt;track&gt;</code>) on <code>file://</code> pages, and seeking needs a server that supports range requests (<code>http-server</code> does).</p>
+<h3>Rebuilding the PDFs</h3>
+<p><code>docs/research.pdf</code> and <code>docs/documentation.pdf</code> are made from <code>docs/research.html</code> and <code>docs/documentation.html</code> with your installed Chrome. After editing either HTML file, rebuild them:</p>
+<pre><code class="language-bash">npm run docs:pdf
+npm run docs:watch
+</code></pre>
+<p><code>docs:watch</code> rebuilds a PDF every time you save its HTML file (Ctrl+C to stop). If Chrome isn&#39;t found, set <code>CHROME_PATH</code> to its location.</p>
+<h2>Accessibility checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>How it&#39;s met</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Semantic structure</td>
+<td><code>header</code>, <code>nav</code>, <code>main</code>, <code>article</code>, <code>section</code>, <code>aside</code>, <code>figure</code>/<code>figcaption</code>, <code>footer</code>; one <code>h1</code> per page and a logical heading order</td>
+</tr>
+<tr>
+<td>Skip link</td>
+<td>&quot;Skip to main content&quot; is the first focusable element on every page</td>
+</tr>
+<tr>
+<td>Captions</td>
+<td>Every video and audio story has a WebVTT <code>&lt;track kind=&quot;captions&quot;&gt;</code>, on by default. The three video clips are silent, so their caption track says so</td>
+</tr>
+<tr>
+<td>Transcripts</td>
+<td>Every story has an interactive, timestamped transcript plus a <code>.txt</code> download. For the silent clips it describes what you see (WCAG 1.2.1)</td>
+</tr>
+<tr>
+<td>Audio description</td>
+<td>Every video has a <code>kind=&quot;descriptions&quot;</code> track; the <strong>Audio description</strong> toggle reads it aloud with speech synthesis and lowers the video volume (falls back to an ARIA live region)</td>
+</tr>
+<tr>
+<td>Contrast (1.4.3)</td>
+<td>Every colour pairing in <code>_colors.scss</code> is ≥ 4.5:1 in light and dark themes (checked with a script)</td>
+</tr>
+<tr>
+<td>Keyboard (2.1.1)</td>
+<td>All controls are native <code>button</code>/<code>a</code>; ARIA tabs use arrow keys, Home and End; Esc closes the mobile menu</td>
+</tr>
+<tr>
+<td>Shortcuts (2.1.4)</td>
+<td>K, J, L, C and D only work while focus is inside the player</td>
+</tr>
+<tr>
+<td>Focus visible (2.4.7)</td>
+<td>A 3px two-tone focus ring on every interactive element</td>
+</tr>
+<tr>
+<td>ARIA where needed</td>
+<td><code>aria-current</code> (nav, breadcrumb, transcript line), <code>aria-pressed</code> (toggles, filters), <code>aria-expanded</code>/<code>aria-controls</code> (menu), <code>role=&quot;tablist&quot;</code>/<code>tab</code>/<code>tabpanel</code>, <code>role=&quot;status&quot;</code> (filter results, form success)</td>
+</tr>
+<tr>
+<td>Forms (3.3.1–3.3.3)</td>
+<td>Visible labels, hints with <code>aria-describedby</code>, inline errors, <code>aria-invalid</code>, an error summary that receives focus</td>
+</tr>
+<tr>
+<td>Reflow and zoom (1.4.10)</td>
+<td>Single column at 320px, no horizontal scroll (checked at 390px)</td>
+</tr>
+<tr>
+<td>Motion (2.2.2, 2.3.3)</td>
+<td>The home hero has a muted 10-second loop with a visible Pause/Play button. It doesn&#39;t start if <code>prefers-reduced-motion</code> is on (or without JS), and it has a text description. <code>prefers-reduced-motion</code> also disables transitions and smooth scrolling. No other media autoplays and nothing flashes</td>
+</tr>
+<tr>
+<td>Themes</td>
+<td>Follows the system theme; a toggle stores the choice; <code>forced-colors</code> (Windows High Contrast) is supported</td>
+</tr>
+<tr>
+<td>Touch targets (2.5.8)</td>
+<td>Interactive elements are at least 44 to 48px</td>
+</tr>
+</tbody></table>
+<p><strong>Testing done:</strong> axe-core (WCAG 2.0/2.1 A + AA + best practice) reports 0 violations on all 6 pages in light and dark themes at 1440px and 390px. A scripted keyboard and interaction test covers tabs, menu, filters, player toggles, transcript seeking and form validation. The browser accessibility tree (what screen readers read) was reviewed on every page type: one <code>h1</code> and no skipped heading levels, header, navigation, main and footer landmarks on every page (each navigation named), no unnamed controls, and toggle states (<code>pressed</code>, <code>expanded</code>) exposed.
+<strong>Still to do by hand:</strong> screen reader passes with NVDA and VoiceOver.</p>
+<h2>Media sources</h2>
+<p>The story videos and photos are linked directly from the Cloudinary sample library. The URLs use Cloudinary transformations (<code>c_limit,w_1280,q_auto</code> for video, <code>so_&lt;seconds&gt;</code> for poster frames, <code>c_fill</code> / <code>c_thumb,g_face</code> for photos), so each video loads at about 2 to 4.5 MB instead of 28 to 39 MB.</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>Media</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The Long Walk</td>
+<td><code>samples/elephants.mp4</code></td>
+</tr>
+<tr>
+<td>Wall Dance</td>
+<td><code>samples/cld-sample-video.mp4</code></td>
+</tr>
+<tr>
+<td>Slow Swim</td>
+<td><code>samples/sea-turtle.mp4</code></td>
+</tr>
+<tr>
+<td>Dawn Chorus cover</td>
+<td><code>samples/landscapes/beach-boat.jpg</code></td>
+</tr>
+<tr>
+<td>About: mission photo</td>
+<td><code>samples/people/jazz.jpg</code></td>
+</tr>
+<tr>
+<td>Home: call-to-action photo</td>
+<td><code>cld-sample.jpg</code></td>
+</tr>
+</tbody></table>
+<p>The home hero uses a looping Gemini video (<code>assets/media/hero-loop.mp4</code>, poster <code>assets/images/hero-loop-poster.jpg</code>).</p>
+<h2>Credits</h2>
+<ul>
+<li>Video clips and photos: Cloudinary sample library.</li>
+<li><strong>Dawn Chorus</strong> audio is a StoryCast original, made with the Web Audio API.</li>
+<li>Fonts: Google Sans Flex and Material Symbols Rounded (Google Fonts).</li>
+</ul>
+
+</body></html>

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About &amp; access | StoryCast</title>
+  <meta name="description" content="Why StoryCast exists, the accessibility features built into every story, and how you can get involved.">
+  <meta name="theme-color" content="#4a35d0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,check_circle,chevron_right,close,closed_caption,contrast,dark_mode,description,download,edit_note,error,flag,forum,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,send,star,sync,verified,zoom_in&amp;display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <script>
+    // Apply the saved theme before first paint (prevents a flash of the wrong theme).
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try { var t = localStorage.getItem('storycast-theme'); if (t) root.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="app-bar" data-app-bar>
+    <div class="container app-bar__inner">
+      <a class="brand" href="index.html" aria-label="StoryCast, home">
+        <img class="brand__mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">
+        <span>Story<span class="brand__accent">Cast</span></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html"><span class="icon" aria-hidden="true">home</span>Home</a></li>
+          <li><a class="site-nav__link" href="index.html#stories"><span class="icon" aria-hidden="true">auto_stories</span>Stories</a></li>
+          <li><a class="site-nav__link" href="about.html" aria-current="page"><span class="icon" aria-hidden="true">accessibility_new</span>About &amp; access</a></li>
+        </ul>
+      </nav>
+
+      <div class="app-bar__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden>
+          <span class="icon theme-icon" aria-hidden="true">dark_mode</span>
+          <span class="visually-hidden">Dark theme</span>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+          <span class="icon" aria-hidden="true">menu</span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <header class="page-hero">
+        <h1>Everyday People by Benjamin Kettey-Tagoe.</h1>
+        <p class="lede">StoryCast shares short stories told by ordinary people, and makes sure everyone can follow them, whether they watch, listen or read.</p>
+        <nav aria-label="On this page">
+          <ul class="chip-list" style="margin-top:1.5rem">
+            <li><a class="btn btn--filled" href="#mission">Mission</a></li>
+            <li><a class="btn btn--tonal" href="#features">Accessibility features</a></li>
+            <li><a class="btn btn--tonal" href="#engage">Get involved</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <section class="section" id="mission" aria-labelledby="mission-title">
+      <div class="container mission">
+        <div class="prose">
+          <p class="eyebrow"><span class="icon" aria-hidden="true">flag</span>Our mission</p>
+          <h2 class="section-title" id="mission-title">Ordinary lives, worth hearing</h2>
+          <p>We’ve got the dreamers. We’ve got the doers.
+            We’ve got the saints, the rebels, the believers, and the doubters.
+            We see the world through a million different lenses.
+            We vote differently, we love differently, we pray differently, and we play differently.
+          </p>
+          <p>
+            To anyone watching from the outside, it looked like the start of an ordinary, completely forgettable day. The world was wrapped in a sleepy, quiet gray. Front doors unlocked. Garage doors rolled up with a heavy metallic yawn. Keys jangled, coffee machines dripped, and thousands of shoes hit the pavement in a steady, synchronized march.
+            If you looked up the word everyday in the dictionary, this was it. It meant routine. It meant standard issue. It meant the background noise of life.
+            But then, the sun finally cracked over the horizon, and the gray began to shatter into a million bright, chaotic colors.
+          </p>
+        </div>
+        <div class="mission__aside">
+        <figure class="mission__figure">
+          <img src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_fill,w_960,h_640,q_auto,f_auto/v1781560234/samples/people/jazz.jpg" alt="An outdoor street concert: a saxophonist and a singer in a hat perform under autumn trees while a woman dances on the stage behind them." width="960" height="640" loading="lazy" decoding="async">
+        </figure>
+        <blockquote class="mission__quote">
+          <p>“A story isn’t finished until everyone can get to the end of it.”</p>
+          <footer>The StoryCast design principle</footer>
+        </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tonal" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__text">
+            <p class="eyebrow"><span class="icon icon--filled" aria-hidden="true">verified</span>Accessibility features</p>
+            <h2 class="section-title" id="features-title">What every story includes</h2>
+          </div>
+        </div>
+        <ul class="feature-grid" role="list">
+          <li class="feature">
+            <span class="icon-badge"><span class="icon" aria-hidden="true">closed_caption</span></span>
+            <h3 class="feature__title">Captions</h3>
+            <p class="feature__text">But under the skin? We are running on the exact same fuel. Hope. Love. Connection. A desire to be seen.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-badge icon-badge--secondary"><span class="icon" aria-hidden="true">description</span></span>
+            <h3 class="feature__title">Transcripts</h3>
+            <p class="feature__text">Every story has an interactive transcript you can download: select a timestamp to jump to that moment.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-badge icon-badge--tertiary"><span class="icon" aria-hidden="true">record_voice_over</span></span>
+            <h3 class="feature__title">Audio description</h3>
+            <p class="feature__text">On any video, turn on <em>Audio description</em> and your device reads out what happens on screen.</p>
+          </li>
+          <li class="feature">
+            <p class="feature__text">A skip link, a logical tab order, visible focus outlines and media shortcuts that only work inside the player.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-badge icon-badge--secondary"><span class="icon" aria-hidden="true">contrast</span></span>
+            <h3 class="feature__title">Contrast and themes</h3>
+            <p class="feature__text">All text meets at least 4.5:1 contrast in light and dark themes. Your system theme is used unless you pick one.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-badge icon-badge--tertiary"><span class="icon" aria-hidden="true">zoom_in</span></span>
+            <h3 class="feature__title">Zoom and reduced motion</h3>
+            <p class="feature__text">Pages reflow to one column at 320px and 400% zoom, and animations switch off if your device asks for less motion.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section section--tonal" id="engage" aria-labelledby="engage-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__text">
+            <p class="eyebrow"><span class="icon" aria-hidden="true">forum</span>Get involved</p>
+            <h2 class="section-title" id="engage-title">How to engage with StoryCast</h2>
+          </div>
+        </div>
+        <ol class="steps">
+          <li><p>So look in the mirror today. Take a good look.You are a vital piece of this giant, gorgeous puzzle.</p></li>
+          <li><h3>Read along</h3><p>Stand tall. Sing loud. Live your truth. Because the world doesn’t move because of the elite few—it spins on the shoulders of Everyday People!</p></li>
+          <li><h3>Share what worked</h3><p>Tell us if a caption was unclear, a description missed something, or a control got in your way.</p></li>
+          <li><h3>Suggest a voice</h3><p>Know a story told by an ordinary person that more people should hear? Send us the link or the idea.</p></li>
+        </ol>
+
+        <div class="engage" style="margin-top:3rem">
+          <div class="prose">
+            <h3>Send feedback or a story idea</h3>
+            <p>Fields marked <span class="field__required">*</span> are required. We’ll only use your email to reply to you.</p>
+            <div class="contact-card">
+              <h3>Prefer another way?</h3>
+              <p>Email <a href="mailto:b.kettey-ta@alustudent.com">b.kettey-ta@alustudent.com</a>. This is where the magic hiding inside the word people comes alive. We are eight billion fiercely stubborn, beautifully messy individuals, all crammed onto one spinning rock, trying to figure out the rules as we go.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="error-summary" tabindex="-1" data-error-summary hidden aria-labelledby="error-summary-title">
+              <h2 id="error-summary-title">There is a problem</h2>
+              <ul data-error-list></ul>
+            </div>
+
+            <form class="form" id="engage-form" novalidate data-form>
+              <div class="form__row">
+                <div class="field">
+                  <label class="field__label" for="name">Your name <span class="field__required" aria-hidden="true">*</span></label>
+                  <input class="field__control" id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error">
+                  <p class="field__error" id="name-error" data-error-for="name"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="email">Email address <span class="field__required" aria-hidden="true">*</span></label>
+                  <input class="field__control" id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="email-hint email-error">
+                  <p class="field__hint" id="email-hint">For example, name@example.com</p>
+                  <p class="field__error" id="email-error" data-error-for="email"></p>
+                </div>
+              </div>
+
+              <fieldset class="choice-group" aria-describedby="topic-error">
+                <legend>What is this about? <span class="field__required" aria-hidden="true">*</span></legend>
+                <div class="choice-group__options">
+                  <label class="choice"><input type="radio" name="topic" value="feedback" required>Feedback</label>
+                  <label class="choice"><input type="radio" name="topic" value="story">Story idea</label>
+                  <label class="choice"><input type="radio" name="topic" value="access">Access problem</label>
+                </div>
+                <p class="field__error" id="topic-error" data-error-for="topic"></p>
+              </fieldset>
+
+              <div class="field">
+                <label class="field__label" for="message">Your message <span class="field__required" aria-hidden="true">*</span></label>
+                <p class="field__hint" id="message-hint">At least 20 characters. If something didn’t work, tell us which story and what happened.</p>
+                <textarea class="field__control" id="message" name="message" rows="5" required minlength="20" aria-describedby="message-hint message-error"></textarea>
+                <p class="field__error" id="message-error" data-error-for="message"></p>
+              </div>
+
+              <div class="field">
+                <label class="checkbox"><input type="checkbox" name="consent" id="consent" required aria-describedby="consent-error"><span>I agree that StoryCast can store my message to reply to me. <span class="field__required" aria-hidden="true">*</span></span></label>
+                <p class="field__error" id="consent-error" data-error-for="consent"></p>
+              </div>
+
+              <div class="btn-row">
+                <button class="btn btn--filled btn--large" type="submit"><span class="icon" aria-hidden="true">send</span>Send message</button>
+              </div>
+              <p class="form__note">This is a prototype: messages are checked in your browser and not sent anywhere.</p>
+            </form>
+
+            <div class="form-success" tabindex="-1" role="status" data-form-success hidden>
+              <span class="icon icon--filled" aria-hidden="true">check_circle</span>
+              <div>
+                <h3>Thank you, your message is ready</h3>
+                <p>In the live service this would now be sent to the StoryCast team. <a href="#engage-form" data-form-reset>Send another message</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="conformance" aria-labelledby="conformance-title">
+      <div class="container">
+        <div class="conformance">
+          <p class="conformance__badge" aria-hidden="true"><span>AA<small>WCAG 2.1</small></span></p>
+          <div class="conformance__text prose">
+            <h2 id="conformance-title" style="margin-top:0">Accessibility statement</h2>
+            <p>We are the introverts hiding behind massive headphones, creating masterpieces in quiet rooms, and we are the extroverts high-fiving strangers on the subway. We see the world through a million different lenses. We love differently, we dream differently, we vote differently, and we argue fiercely.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__about">
+          <a class="brand" href="index.html" aria-label="StoryCast, home">
+            <img class="brand__mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">
+            <span>Story<span class="brand__accent">Cast</span></span>
+          </a>
+          <p>Because "Everyday People" doesn’t mean ordinary. It means the absolute bedrock of humanity. It means the nurse holding a hand at midnight, the teacher refusing to give up on the kid in the back row, and the neighbor sharing a fresh loaf of bread over the fence. There are no VIP ropes here. There are no exclusive guest lists.</p>
+        </div>
+        <nav aria-labelledby="footer-stories">
+          <h2 class="site-footer__heading" id="footer-stories">Stories</h2>
+          <ul class="site-footer__links">
+            <li><a href="story/the-long-walk.html">The Long Walk</a></li>
+            <li><a href="story/wall-dance.html">Wall Dance</a></li>
+            <li><a href="story/slow-swim.html">Slow Swim</a></li>
+            <li><a href="story/dawn-chorus.html">Dawn Chorus</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="footer-access">
+          <h2 class="site-footer__heading" id="footer-access">StoryCast</h2>
+          <ul class="site-footer__links">
+            <li><a href="about.html#mission">Our mission</a></li>
+            <li><a href="about.html#features">Accessibility features</a></li>
+            <li><a href="about.html#engage">Get involved</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__base">
+        <p>&copy; <span data-year>2026</span> Everyday People by Benjamin Kettey-Tagoe </p>
+        <p>Built to <a href="about.html#conformance">WCAG 2.1 AA</a> with semantic HTML, Sass and vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

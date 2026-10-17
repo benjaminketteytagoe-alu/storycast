@@ -1,0 +1,19 @@
+{
+  "name": "storycast",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StoryCast — an accessible audio & video storytelling microsite (vanilla HTML, Sass, JS).",
+  "scripts": {
+    "build": "sass --no-source-map --style=expanded sass/main.scss css/main.css",
+    "watch": "sass --watch --style=expanded sass/main.scss css/main.css",
+    "serve": "npx --yes http-server@14.1.1 -p 8080 -c-1",
+    "dev": "npm run build && npm run serve",
+    "docs:pdf": "node scripts/build-pdfs.mjs",
+    "docs:watch": "node scripts/build-pdfs.mjs --watch"
+  },
+  "devDependencies": {
+    "puppeteer-core": "23.6.0",
+    "sass": "1.80.6"
+  },
+  "license": "MIT"
+}

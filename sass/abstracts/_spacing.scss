@@ -1,0 +1,88 @@
+@use 'sass:map';
+
+// =============================================================================
+// Spacing, shape, elevation & motion tokens
+// -----------------------------------------------------------------------------
+// A 4px base grid. `space(4)` = 1rem. Shape and elevation follow Material 3.
+// =============================================================================
+
+$base: 0.25rem;
+
+$scale: (
+  0: 0,
+  1: $base,          //  4px
+  2: $base * 2,      //  8px
+  3: $base * 3,      // 12px
+  4: $base * 4,      // 16px
+  5: $base * 5,      // 20px
+  6: $base * 6,      // 24px
+  8: $base * 8,      // 32px
+  10: $base * 10,    // 40px
+  12: $base * 12,    // 48px
+  16: $base * 16,    // 64px
+  20: $base * 20,    // 80px
+  24: $base * 24,    // 96px
+);
+
+/// @example scss  padding: spacing.space(6);
+@function space($step) {
+  $value: map.get($scale, $step);
+  @if $value == null {
+    @error 'Unknown spacing step `#{$step}`.';
+  }
+  @return $value;
+}
+
+// Fluid section rhythm & page gutter
+$section-gap: clamp(3rem, 2rem + 4vw, 6rem);
+$gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+$content-max: 80rem;  // 1280px
+$prose-max: 46rem;
+
+// Minimum touch target (WCAG 2.5.8 / Material) — 48px
+$touch-target: 3rem;
+
+// ---------- Shape (corner radius) -------------------------------------------
+$shape: (
+  'none': 0,
+  'xs': 0.25rem,
+  'sm': 0.5rem,
+  'md': 0.75rem,
+  'lg': 1rem,
+  'xl': 1.75rem,
+  'xxl': 2.5rem,
+  'full': 999px,
+);
+
+@function corner($name) {
+  @return map.get($shape, $name);
+}
+
+// ---------- Elevation (Material 3 levels 0–5) -------------------------------
+$elevation: (
+  0: none,
+  1: (0 1px 2px rgb(27 16 96 / 0.18), 0 1px 3px 1px rgb(27 16 96 / 0.08)),
+  2: (0 1px 2px rgb(27 16 96 / 0.18), 0 2px 6px 2px rgb(27 16 96 / 0.1)),
+  3: (0 4px 8px 3px rgb(27 16 96 / 0.1), 0 1px 3px rgb(27 16 96 / 0.18)),
+  4: (0 6px 10px 4px rgb(27 16 96 / 0.11), 0 2px 3px rgb(27 16 96 / 0.18)),
+  5: (0 8px 12px 6px rgb(27 16 96 / 0.12), 0 4px 4px rgb(27 16 96 / 0.18)),
+);
+
+@function elevation($level) {
+  @return map.get($elevation, $level);
+}
+
+// ---------- Motion -----------------------------------------------------------
+$ease-standard:   cubic-bezier(0.2, 0, 0, 1);
+$ease-emphasized: cubic-bezier(0.05, 0.7, 0.1, 1);
+$ease-exit:       cubic-bezier(0.3, 0, 0.8, 0.15);
+$duration-short:  150ms;
+$duration-medium: 300ms;
+$duration-long:   500ms;
+
+// ---------- Breakpoints (viewport) -------------------------------------------
+$breakpoints: (
+  'sm': 37.5rem,  // 600px  — Material compact → medium
+  'md': 52.5rem,  // 840px  — medium → expanded
+  'lg': 75rem,    // 1200px — large
+);

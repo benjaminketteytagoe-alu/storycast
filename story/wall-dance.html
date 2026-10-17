@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wall Dance: a StoryCast video story</title>
+  <meta name="description" content="Someone dances in front of a bright street mural: twelve seconds of pure movement.">
+  <meta name="theme-color" content="#4a35d0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,check_circle,chevron_right,close,closed_caption,contrast,dark_mode,description,download,edit_note,error,flag,forum,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,send,star,sync,verified,zoom_in&amp;display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <script>
+    // Apply the saved theme before first paint (prevents a flash of the wrong theme).
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try { var t = localStorage.getItem('storycast-theme'); if (t) root.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="app-bar" data-app-bar>
+    <div class="container app-bar__inner">
+      <a class="brand" href="../index.html" aria-label="StoryCast, home">
+        <img class="brand__mark" src="../assets/images/logo-mark.svg" alt="" width="40" height="40">
+        <span>Story<span class="brand__accent">Cast</span></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="../index.html"><span class="icon" aria-hidden="true">home</span>Home</a></li>
+          <li><a class="site-nav__link" href="../index.html#stories" aria-current="page"><span class="icon" aria-hidden="true">auto_stories</span>Stories</a></li>
+          <li><a class="site-nav__link" href="../about.html"><span class="icon" aria-hidden="true">accessibility_new</span>About &amp; access</a></li>
+        </ul>
+      </nav>
+
+      <div class="app-bar__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden>
+          <span class="icon theme-icon" aria-hidden="true">dark_mode</span>
+          <span class="visually-hidden">Dark theme</span>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+          <span class="icon" aria-hidden="true">menu</span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#stories">Stories</a></li>
+          <li><span aria-current="page">Wall Dance</span></li>
+        </ol>
+      </nav>
+
+      <article class="story" aria-labelledby="story-title">
+        <header class="story-header">
+          <ul class="chip-list" aria-label="Story details">
+            <li class="chip chip--video"><span class="icon" aria-hidden="true">movie</span>Video story</li>
+            <li class="chip"><span class="icon" aria-hidden="true">schedule</span><span class="visually-hidden">Duration: </span>0:11</li>
+            <li class="chip">Movement</li>
+            <li class="chip">Street art</li>
+          </ul>
+          <h1 id="story-title">Wall Dance</h1>
+          <p class="story-header__dek">Someone dances in front of a bright street mural: twelve seconds of pure movement.</p>
+          <p class="story-header__byline">
+            <span class="story-header__avatar" aria-hidden="true">SC</span>
+            <span>Footage from the <strong>Cloudinary sample library</strong></span>
+            <span aria-hidden="true">·</span>
+            <span>Published <time datetime="2026-10-02">2 October 2026</time></span>
+          </p>
+        </header>
+
+        <div class="story-layout">
+          <div class="story-layout__main">
+            <section class="player" aria-label="Video player" data-player data-kind="video" tabindex="-1">
+              <figure class="player__figure">
+              <div class="player__screen">
+                <video controls preload="metadata" playsinline poster="https://res.cloudinary.com/dl2fjmhft/video/upload/so_3,c_fill,w_1280,h_720,q_auto/v1781560237/samples/cld-sample-video.jpg" width="1280" height="720" data-media aria-describedby="media-desc">
+                  <source src="https://res.cloudinary.com/dl2fjmhft/video/upload/c_limit,w_1280,q_auto/v1781560237/samples/cld-sample-video.mp4" type="video/mp4">
+                  <track kind="captions" src="../assets/captions/wall-dance.en.vtt" srclang="en" label="English captions" default>
+                  <track kind="descriptions" src="../assets/captions/wall-dance.descriptions.en.vtt" srclang="en" label="English audio description">
+                  <p>Your browser can’t play this video. <a href="https://res.cloudinary.com/dl2fjmhft/video/upload/c_limit,w_1280,q_auto/v1781560237/samples/cld-sample-video.mp4">Download the video (MP4)</a> or read the <a href="#transcript-panel">full transcript</a>.</p>
+                </video>
+              </div>
+                <figcaption class="player__caption" id="media-desc">A person in glasses, a red beanie and an olive jacket dances in front of a mural of cartoon hands and green leaves. Running time 11 seconds. Captions, audio description and a transcript are available.</figcaption>
+              </figure>
+
+              <p class="described" data-described hidden>
+                <span class="icon" aria-hidden="true">record_voice_over</span>
+                <span><span class="described__label">Described: </span><span data-described-text></span></span>
+              </p>
+
+              <div class="a11y-toolbar" role="group" aria-label="Accessibility options" data-toolbar hidden>
+                <button class="toggle" type="button" data-toggle="captions" aria-pressed="true"><span class="icon" aria-hidden="true">closed_caption</span>Captions</button>
+                <button class="toggle" type="button" data-toggle="descriptions" aria-pressed="false"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</button>
+                <button class="toggle" type="button" data-toggle="follow" aria-pressed="true"><span class="icon" aria-hidden="true">sync</span>Follow transcript</button>
+                <p class="shortcut-hint">Shortcuts: <kbd>K</kbd> play/pause, <kbd>J</kbd>/<kbd>L</kbd> skip 5s.</p>
+              </div>
+            </section>
+
+            <div class="tabs" data-tabs>
+              <div class="tabs__list" data-tablist aria-label="Story information" hidden>
+                <button class="tabs__tab" type="button" id="tab-transcript" aria-controls="transcript-panel"><span class="icon" aria-hidden="true">description</span>Transcript</button>
+                <button class="tabs__tab" type="button" id="tab-about" aria-controls="about-panel"><span class="icon" aria-hidden="true">info</span>About this story</button>
+                <button class="tabs__tab" type="button" id="tab-credits" aria-controls="credits-panel"><span class="icon" aria-hidden="true">groups</span>Credits &amp; access</button>
+              </div>
+
+              <section class="tabs__panel" id="transcript-panel" aria-labelledby="transcript-title" data-tabpanel>
+                <h2 class="tabs__panel-title" id="transcript-title">Transcript</h2>
+                <div class="transcript__tools">
+                  <ul class="transcript__legend" aria-label="Transcript key">
+                    
+                    <li><span class="transcript__tag transcript__tag--visual">Visual</span> what you see</li>
+                    <li><span class="transcript__tag transcript__tag--sound">Sound</span> what you hear</li>
+                  </ul>
+                  <a class="btn btn--text" href="../assets/transcripts/wall-dance.txt" download><span class="icon" aria-hidden="true">download</span>Download transcript (TXT)</a>
+                </div>
+                <ol class="transcript__list" data-transcript tabindex="0" aria-label="Timestamped transcript of Wall Dance">
+                <li class="transcript__item transcript__item--visual" data-start="0" data-end="4" data-type="visual">
+                  <button class="transcript__time" type="button" data-seek="0" aria-label="Play from 0 seconds">0:00</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--visual">Visual</span>A person in round glasses, a dark red beanie, an olive jacket and a white T-shirt dances in front of a large mural of cartoon hands and green leaf shapes.</p>
+                </li>
+                <li class="transcript__item transcript__item--sound" data-start="0" data-end="11.8" data-type="sound">
+                  <button class="transcript__time" type="button" data-seek="0" aria-label="Play from 0 seconds">0:00</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--sound">Sound</span>No sound. This video is silent</p>
+                </li>
+                <li class="transcript__item transcript__item--visual" data-start="4" data-end="8" data-type="visual">
+                  <button class="transcript__time" type="button" data-seek="4" aria-label="Play from 4 seconds">0:04</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--visual">Visual</span>They step from side to side, swinging their arms and bending their knees in time to a beat we can’t hear.</p>
+                </li>
+                <li class="transcript__item transcript__item--visual" data-start="8" data-end="11.8" data-type="visual">
+                  <button class="transcript__time" type="button" data-seek="8" aria-label="Play from 8 seconds">0:08</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--visual">Visual</span>They move to the left, roll their shoulders and finish facing the camera.</p>
+                </li>
+                </ol>
+              </section>
+
+              <section class="tabs__panel story-notes" id="about-panel" aria-labelledby="about-title" data-tabpanel>
+                <h2 class="tabs__panel-title" id="about-title">About this story</h2>
+                <p>Not every everyday voice uses words. Here someone tells you how they feel the only way they need to, by dancing in front of a painted wall on an ordinary street.</p>
+                <p>This clip has no sound, so the transcript and audio description tell you everything that happens on screen.</p>
+              </section>
+
+              <section class="tabs__panel" id="credits-panel" aria-labelledby="credits-title" data-tabpanel>
+                <h2 class="tabs__panel-title" id="credits-title">Credits &amp; access</h2>
+                <dl class="credits">
+                  <div><dt>Footage</dt><dd>Cloudinary sample library (<a href="https://res.cloudinary.com/dl2fjmhft/video/upload/v1781560237/samples/cld-sample-video.mp4">original file</a>)</dd></div>
+                  <div><dt>Captions and description</dt><dd>Written by StoryCast from a frame-by-frame review of the clip</dd></div>
+                  <div><dt>Captions</dt><dd>WebVTT, marking the clip as silent (<a href="../assets/captions/wall-dance.en.vtt">download VTT</a>)</dd></div>
+                  <div><dt>Audio description</dt><dd>WebVTT description track, read aloud by your device (<a href="../assets/captions/wall-dance.descriptions.en.vtt">download VTT</a>)</dd></div>
+                  <div><dt>Transcript</dt><dd>Full timestamped transcript (<a href="../assets/transcripts/wall-dance.txt">download TXT</a>)</dd></div>
+                  <div><dt>Loud or flashing content</dt><dd>None. There are no flashes and no sudden loud sounds.</dd></div>
+                </dl>
+              </section>
+            </div>
+          </div>
+
+          <aside class="story-layout__aside" aria-labelledby="related-title">
+            <section>
+              <h2 class="story-layout__aside-title" id="related-title">Up next</h2>
+              <ul class="card-stack" role="list">
+                <li><article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_16,c_fill,w_640,h_360,q_auto/v1781560237/samples/elephants.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:48</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:48</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="../story/the-long-walk.html">The Long Walk</a></h3>
+              <p class="media-card__summary">A whole herd on the move, calves in the middle.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article></li>
+                <li><article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_9,c_fill,w_640,h_360,q_auto/v1781560236/samples/sea-turtle.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:15</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:15</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="../story/slow-swim.html">Slow Swim</a></h3>
+              <p class="media-card__summary">Fifteen seconds with a sea turtle in open water.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article></li>
+                <li><article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_fill,w_640,h_360,q_auto,f_auto/v1781560235/samples/landscapes/beach-boat.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">graphic_eq</span>0:45</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--audio"><span class="icon" aria-hidden="true">graphic_eq</span>Audio</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:45</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="../story/dawn-chorus.html">Dawn Chorus</a></h3>
+              <p class="media-card__summary">One bird, then two, then the whole hedge: morning arriving.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article></li>
+              </ul>
+            </section>
+            <section aria-labelledby="facts-title">
+              <h2 class="story-layout__aside-title" id="facts-title">At a glance</h2>
+              <dl class="facts">
+                <div class="facts__row"><dt>Format</dt><dd>Live-action video, no sound</dd></div>
+                <div class="facts__row"><dt>Length</dt><dd>0:11</dd></div>
+                <div class="facts__row"><dt>Spoken words</dt><dd>None</dd></div>
+                <div class="facts__row"><dt>Captions</dt><dd>English</dd></div>
+                <div class="facts__row"><dt>Audio description</dt><dd>English</dd></div>
+              </dl>
+            </section>
+          </aside>
+        </div>
+      </article>
+    </div>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Wall Dance","description":"Someone dances in front of a bright street mural: twelve seconds of pure movement.","duration":"PT12S","uploadDate":"2026-10-02","contentUrl":"https://res.cloudinary.com/dl2fjmhft/video/upload/c_limit,w_1280,q_auto/v1781560237/samples/cld-sample-video.mp4","thumbnailUrl":"https://res.cloudinary.com/dl2fjmhft/video/upload/so_3,c_fill,w_640,h_360,q_auto/v1781560237/samples/cld-sample-video.jpg","transcript":"A person in round glasses, a dark red beanie, an olive jacket and a white T-shirt dances in front of a large mural of cartoon hands and green leaf shapes. No sound. This video is silent They step from side to side, swinging their arms and bending their knees in time to a beat we can’t hear. They move to the left, roll their shoulders and finish facing the camera."}</script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__about">
+          <a class="brand" href="../index.html" aria-label="StoryCast, home">
+            <img class="brand__mark" src="../assets/images/logo-mark.svg" alt="" width="40" height="40">
+            <span>Story<span class="brand__accent">Cast</span></span>
+          </a>
+          <p>Everyday Voices: short audio and video stories told by ordinary people. Every story comes with captions and a transcript.</p>
+        </div>
+        <nav aria-labelledby="footer-stories">
+          <h2 class="site-footer__heading" id="footer-stories">Stories</h2>
+          <ul class="site-footer__links">
+            <li><a href="../story/the-long-walk.html">The Long Walk</a></li>
+            <li><a href="../story/wall-dance.html">Wall Dance</a></li>
+            <li><a href="../story/slow-swim.html">Slow Swim</a></li>
+            <li><a href="../story/dawn-chorus.html">Dawn Chorus</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="footer-access">
+          <h2 class="site-footer__heading" id="footer-access">StoryCast</h2>
+          <ul class="site-footer__links">
+            <li><a href="../about.html#mission">Our mission</a></li>
+            <li><a href="../about.html#features">Accessibility features</a></li>
+            <li><a href="../about.html#engage">Get involved</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__base">
+        <p>&copy; <span data-year>2026</span> StoryCast. Video clips and photos from the Cloudinary sample library.</p>
+        <p>Built to <a href="../about.html#conformance">WCAG 2.1 AA</a> with semantic HTML, Sass and vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

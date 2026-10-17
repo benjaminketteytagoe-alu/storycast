@@ -1,0 +1,35 @@
+// =============================================================================
+// StoryCast — main stylesheet
+// Compiles to /css/main.css  (npm run build  |  npm run watch)
+//
+// Architecture (7-1 inspired):
+//   abstracts/  tokens (_colors, _typography, _spacing) + mixins — no CSS output
+//   base/       reset, theme custom properties, element defaults, a11y helpers
+//   layout/     page container, app bar, footer
+//   components/ reusable UI (buttons, chips, media card, player, tabs, …)
+//   pages/      page-specific composition
+// =============================================================================
+
+@use 'base/reset';
+@use 'base/themes';
+@use 'base/base';
+@use 'base/a11y';
+
+@use 'layout/container';
+@use 'layout/header';
+@use 'layout/footer';
+
+@use 'components/icons';
+@use 'components/buttons';
+@use 'components/chips';
+@use 'components/media-card';
+@use 'components/hero';
+@use 'components/player';
+@use 'components/tabs';
+@use 'components/transcript';
+@use 'components/features';
+@use 'components/forms';
+
+@use 'pages/home';
+@use 'pages/story';
+@use 'pages/about';

@@ -1,0 +1,111 @@
+@use '../abstracts' as *;
+
+// -----------------------------------------------------------------------------
+// Material 3 common buttons: filled, tonal, outlined, text + icon buttons.
+// All share a 48px minimum target and a state layer for hover / press.
+// -----------------------------------------------------------------------------
+.btn {
+  @include state-layer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(2);
+  min-height: $touch-target;
+  padding-inline: space(6);
+  border: 1px solid transparent;
+  border-radius: corner('full');
+  font-family: $type-font-brand;
+  @include type-role('label-large');
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    box-shadow $duration-medium $ease-standard,
+    background-color $duration-medium $ease-standard,
+    transform $duration-short $ease-standard;
+
+  .icon {
+    font-size: 1.25rem;
+    margin-inline-start: calc(#{space(2)} * -1);
+  }
+
+  &--icon-end .icon {
+    margin-inline: 0 calc(#{space(2)} * -1);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &--filled {
+    background: color-role('primary');
+    color: color-role('on-primary');
+
+    &:hover {
+      box-shadow: var(--sc-elev-1);
+    }
+  }
+
+  &--tonal {
+    background: color-role('secondary-container');
+    color: color-role('on-secondary-container');
+  }
+
+  &--outlined {
+    border-color: color-role('outline');
+    color: color-role('primary');
+  }
+
+  &--text {
+    padding-inline: space(3);
+    color: color-role('primary');
+  }
+
+  // Variants for use on a solid primary surface (home hero).
+  &--on-primary {
+    background: color-role('on-primary');
+    color: color-role('primary');
+  }
+
+  &--outline-on-primary {
+    border-color: color-role('on-primary');
+    color: color-role('on-primary');
+  }
+
+  &--large {
+    min-height: 3.5rem;
+    padding-inline: space(8);
+    @include type-role('title-medium');
+  }
+
+  @media (forced-colors: active) {
+    border-color: ButtonText;
+  }
+}
+
+.icon-btn {
+  @include state-layer;
+  display: inline-grid;
+  place-items: center;
+  width: $touch-target;
+  height: $touch-target;
+  border-radius: corner('full');
+  color: color-role('on-surface-variant');
+
+  &--tonal {
+    background: color-role('surface-container-highest');
+    color: color-role('on-surface');
+  }
+
+  &[aria-pressed='true'],
+  &[aria-expanded='true'] {
+    background: color-role('primary-container');
+    color: color-role('on-primary-container');
+  }
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(3);
+}

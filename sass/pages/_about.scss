@@ -1,0 +1,113 @@
+@use '../abstracts' as *;
+
+.mission {
+  display: grid;
+  gap: space(10);
+
+  @include up('md') {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  &__aside {
+    display: grid;
+    gap: space(6);
+  }
+
+  &__figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: corner('xxl');
+    background: color-role('surface-container-highest');
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+  }
+
+  &__quote {
+    margin: 0;
+    padding: space(8);
+    border-radius: corner('xxl');
+    background: color-role('tertiary-container');
+    color: color-role('on-tertiary-container');
+
+    p {
+      font-family: $type-font-brand;
+      @include type-role('headline-medium');
+    }
+
+    footer {
+      margin-block-start: space(5);
+      @include type-role('label-large');
+    }
+  }
+}
+
+.engage {
+  display: grid;
+  gap: space(10);
+
+  @include up('lg') {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+}
+
+.contact-card {
+  display: grid;
+  gap: space(3);
+  padding: space(6);
+  border-radius: corner('xl');
+  background: color-role('secondary-container');
+  color: color-role('on-secondary-container');
+
+  h3 {
+    @include type-role('title-large');
+    color: inherit;
+  }
+
+  a {
+    color: inherit;
+    font-weight: 600;
+  }
+}
+
+.conformance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(6);
+  align-items: center;
+  padding: space(6) space(8);
+  border-radius: corner('xl');
+  border: 2px dashed color-role('outline-variant');
+
+  &__badge {
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    background: color-role('primary');
+    color: color-role('on-primary');
+    font-family: $type-font-brand;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+
+    small {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  &__text {
+    flex: 1 1 20rem;
+  }
+}

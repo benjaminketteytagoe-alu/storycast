@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dawn Chorus: a StoryCast audio story</title>
+  <meta name="description" content="The sound of an ordinary morning: a 45-second listening walk through the hour before sunrise.">
+  <meta name="theme-color" content="#4a35d0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,check_circle,chevron_right,close,closed_caption,contrast,dark_mode,description,download,edit_note,error,flag,forum,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,send,star,sync,verified,zoom_in&amp;display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <script>
+    // Apply the saved theme before first paint (prevents a flash of the wrong theme).
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try { var t = localStorage.getItem('storycast-theme'); if (t) root.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="app-bar" data-app-bar>
+    <div class="container app-bar__inner">
+      <a class="brand" href="../index.html" aria-label="StoryCast, home">
+        <img class="brand__mark" src="../assets/images/logo-mark.svg" alt="" width="40" height="40">
+        <span>Story<span class="brand__accent">Cast</span></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="../index.html"><span class="icon" aria-hidden="true">home</span>Home</a></li>
+          <li><a class="site-nav__link" href="../index.html#stories" aria-current="page"><span class="icon" aria-hidden="true">auto_stories</span>Stories</a></li>
+          <li><a class="site-nav__link" href="../about.html"><span class="icon" aria-hidden="true">accessibility_new</span>About &amp; access</a></li>
+        </ul>
+      </nav>
+
+      <div class="app-bar__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden>
+          <span class="icon theme-icon" aria-hidden="true">dark_mode</span>
+          <span class="visually-hidden">Dark theme</span>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+          <span class="icon" aria-hidden="true">menu</span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#stories">Stories</a></li>
+          <li><span aria-current="page">Dawn Chorus</span></li>
+        </ol>
+      </nav>
+
+      <article class="story" aria-labelledby="story-title">
+        <header class="story-header">
+          <ul class="chip-list" aria-label="Story details">
+            <li class="chip chip--audio"><span class="icon" aria-hidden="true">graphic_eq</span>Audio story</li>
+            <li class="chip"><span class="icon" aria-hidden="true">schedule</span><span class="visually-hidden">Duration: </span>0:45</li>
+            <li class="chip">StoryCast original</li>
+            <li class="chip">Soundscape</li>
+          </ul>
+          <h1 id="story-title">Dawn Chorus</h1>
+          <p class="story-header__dek">The sound of an ordinary morning: a 45-second listening walk through the hour before sunrise.</p>
+          <p class="story-header__byline">
+            <span class="story-header__avatar" aria-hidden="true">SC</span>
+            <span>A <strong>StoryCast original</strong></span>
+            <span aria-hidden="true">·</span>
+            <span>Published <time datetime="2026-09-04">4 September 2026</time></span>
+          </p>
+        </header>
+
+        <div class="story-layout">
+          <div class="story-layout__main">
+            <section class="player" aria-label="Audio player" data-player data-kind="audio" tabindex="-1">
+              <figure class="player__figure">
+              <div class="player__art">
+                <img src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_fill,w_1280,h_560,q_auto,f_auto/v1781560235/samples/landscapes/beach-boat.jpg" alt="Cover photo: a red outrigger boat on clear turquoise water beside a sandy beach, with islands on the horizon." width="1280" height="560">
+              </div>
+              <audio controls preload="metadata" data-media aria-describedby="media-desc">
+                <source src="../assets/media/dawn-chorus.mp3" type="audio/mpeg">
+                <track kind="captions" src="../assets/captions/dawn-chorus.en.vtt" srclang="en" label="English captions" default>
+                <p>Your browser can’t play this audio. <a href="../assets/media/dawn-chorus.mp3">Download the audio (MP3)</a> or read the <a href="#transcript-panel">full transcript</a>.</p>
+              </audio>
+                <figcaption class="player__caption" id="media-desc">Cover photo: a red outrigger boat on clear turquoise water beside a sandy beach, with islands on the horizon. Running time 45 seconds. Live captions and a full transcript are available.</figcaption>
+              </figure>
+
+              <p class="live-caption" data-live-caption aria-hidden="true"><span class="icon" aria-hidden="true">closed_caption</span><span class="live-caption__text" data-live-caption-text></span></p>
+
+              <div class="a11y-toolbar" role="group" aria-label="Accessibility options" data-toolbar hidden>
+                <button class="toggle" type="button" data-toggle="captions" aria-pressed="true"><span class="icon" aria-hidden="true">closed_caption</span>Captions</button>
+                
+                <button class="toggle" type="button" data-toggle="follow" aria-pressed="true"><span class="icon" aria-hidden="true">sync</span>Follow transcript</button>
+                <p class="shortcut-hint">Shortcuts: <kbd>K</kbd> play/pause, <kbd>J</kbd>/<kbd>L</kbd> skip 5s.</p>
+              </div>
+            </section>
+
+            <div class="tabs" data-tabs>
+              <div class="tabs__list" data-tablist aria-label="Story information" hidden>
+                <button class="tabs__tab" type="button" id="tab-transcript" aria-controls="transcript-panel"><span class="icon" aria-hidden="true">description</span>Transcript</button>
+                <button class="tabs__tab" type="button" id="tab-about" aria-controls="about-panel"><span class="icon" aria-hidden="true">info</span>About this story</button>
+                <button class="tabs__tab" type="button" id="tab-credits" aria-controls="credits-panel"><span class="icon" aria-hidden="true">groups</span>Credits &amp; access</button>
+              </div>
+
+              <section class="tabs__panel" id="transcript-panel" aria-labelledby="transcript-title" data-tabpanel>
+                <h2 class="tabs__panel-title" id="transcript-title">Transcript</h2>
+                <div class="transcript__tools">
+                  <ul class="transcript__legend" aria-label="Transcript key">
+                    
+                    
+                    <li><span class="transcript__tag transcript__tag--sound">Sound</span> what you hear</li>
+                  </ul>
+                  <a class="btn btn--text" href="../assets/transcripts/dawn-chorus.txt" download><span class="icon" aria-hidden="true">download</span>Download transcript (TXT)</a>
+                </div>
+                <ol class="transcript__list" data-transcript tabindex="0" aria-label="Timestamped transcript of Dawn Chorus">
+                <li class="transcript__item transcript__item--sound" data-start="0" data-end="8" data-type="sound">
+                  <button class="transcript__time" type="button" data-seek="0" aria-label="Play from 0 seconds">0:00</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--sound">Sound</span>Near silence. A soft, steady breeze</p>
+                </li>
+                <li class="transcript__item transcript__item--sound" data-start="8" data-end="16" data-type="sound">
+                  <button class="transcript__time" type="button" data-seek="8" aria-label="Play from 8 seconds">0:08</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--sound">Sound</span>A single bird whistles a falling two-note call, several times</p>
+                </li>
+                <li class="transcript__item transcript__item--sound" data-start="16" data-end="24" data-type="sound">
+                  <button class="transcript__time" type="button" data-seek="16" aria-label="Play from 16 seconds">0:16</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--sound">Sound</span>A second bird joins with a quick, rising trill</p>
+                </li>
+                <li class="transcript__item transcript__item--sound" data-start="24" data-end="30" data-type="sound">
+                  <button class="transcript__time" type="button" data-seek="24" aria-label="Play from 24 seconds">0:24</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--sound">Sound</span>A distant bell rings three times</p>
+                </li>
+                <li class="transcript__item transcript__item--sound" data-start="30" data-end="40" data-type="sound">
+                  <button class="transcript__time" type="button" data-seek="30" aria-label="Play from 30 seconds">0:30</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--sound">Sound</span>Many birds call over one another — the full dawn chorus</p>
+                </li>
+                <li class="transcript__item transcript__item--sound" data-start="40" data-end="45" data-type="sound">
+                  <button class="transcript__time" type="button" data-seek="40" aria-label="Play from 40 seconds">0:40</button>
+                  <p class="transcript__text"><span class="transcript__tag transcript__tag--sound">Sound</span>The calls thin out and the breeze fades</p>
+                </li>
+                </ol>
+              </section>
+
+              <section class="tabs__panel story-notes" id="about-panel" aria-labelledby="about-title" data-tabpanel>
+                <h2 class="tabs__panel-title" id="about-title">About this story</h2>
+                <p>Dawn Chorus is an audio-only story told entirely in sound. It starts in near silence and builds, layer by layer, into a full chorus of birdsong before fading back into the breeze.</p>
+                <p>If you can’t hear it, the timestamped transcript describes every sound in order.</p>
+              </section>
+
+              <section class="tabs__panel" id="credits-panel" aria-labelledby="credits-title" data-tabpanel>
+                <h2 class="tabs__panel-title" id="credits-title">Credits &amp; access</h2>
+                <dl class="credits">
+                  <div><dt>Story</dt><dd>StoryCast Studio</dd></div>
+                  <div><dt>Sound design</dt><dd>StoryCast Studio, generated in the browser with the Web Audio API</dd></div>
+                  <div><dt>Cover photo</dt><dd>Cloudinary sample library</dd></div>
+                  <div><dt>Captions</dt><dd>WebVTT, written from the score timeline (<a href="../assets/captions/dawn-chorus.en.vtt">download VTT</a>)</dd></div>
+                  
+                  <div><dt>Transcript</dt><dd>Full timestamped transcript (<a href="../assets/transcripts/dawn-chorus.txt">download TXT</a>)</dd></div>
+                  <div><dt>Loud or flashing content</dt><dd>None. There are no flashes and no sudden loud sounds.</dd></div>
+                </dl>
+              </section>
+            </div>
+          </div>
+
+          <aside class="story-layout__aside" aria-labelledby="related-title">
+            <section>
+              <h2 class="story-layout__aside-title" id="related-title">Up next</h2>
+              <ul class="card-stack" role="list">
+                <li><article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_16,c_fill,w_640,h_360,q_auto/v1781560237/samples/elephants.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:48</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:48</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="../story/the-long-walk.html">The Long Walk</a></h3>
+              <p class="media-card__summary">A whole herd on the move, calves in the middle.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article></li>
+                <li><article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_3,c_fill,w_640,h_360,q_auto/v1781560237/samples/cld-sample-video.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:11</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:11</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="../story/wall-dance.html">Wall Dance</a></h3>
+              <p class="media-card__summary">A dancer, a mural and a beat you can only see.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article></li>
+                <li><article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_9,c_fill,w_640,h_360,q_auto/v1781560236/samples/sea-turtle.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:15</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:15</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="../story/slow-swim.html">Slow Swim</a></h3>
+              <p class="media-card__summary">Fifteen seconds with a sea turtle in open water.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article></li>
+              </ul>
+            </section>
+            <section aria-labelledby="facts-title">
+              <h2 class="story-layout__aside-title" id="facts-title">At a glance</h2>
+              <dl class="facts">
+                <div class="facts__row"><dt>Format</dt><dd>Audio only</dd></div>
+                <div class="facts__row"><dt>Length</dt><dd>0:45</dd></div>
+                <div class="facts__row"><dt>Spoken words</dt><dd>None</dd></div>
+                <div class="facts__row"><dt>Captions</dt><dd>English</dd></div>
+                
+              </dl>
+            </section>
+          </aside>
+        </div>
+      </article>
+    </div>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"AudioObject","name":"Dawn Chorus","description":"The sound of an ordinary morning: a 45-second listening walk through the hour before sunrise.","duration":"PT45S","uploadDate":"2026-09-04","contentUrl":"assets/media/dawn-chorus.mp3","thumbnailUrl":"https://res.cloudinary.com/dl2fjmhft/image/upload/c_fill,w_640,h_360,q_auto,f_auto/v1781560235/samples/landscapes/beach-boat.jpg","transcript":"Near silence. A soft, steady breeze A single bird whistles a falling two-note call, several times A second bird joins with a quick, rising trill A distant bell rings three times Many birds call over one another — the full dawn chorus The calls thin out and the breeze fades"}</script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__about">
+          <a class="brand" href="../index.html" aria-label="StoryCast, home">
+            <img class="brand__mark" src="../assets/images/logo-mark.svg" alt="" width="40" height="40">
+            <span>Story<span class="brand__accent">Cast</span></span>
+          </a>
+          <p>Everyday Voices: short audio and video stories told by ordinary people. Every story comes with captions and a transcript.</p>
+        </div>
+        <nav aria-labelledby="footer-stories">
+          <h2 class="site-footer__heading" id="footer-stories">Stories</h2>
+          <ul class="site-footer__links">
+            <li><a href="../story/the-long-walk.html">The Long Walk</a></li>
+            <li><a href="../story/wall-dance.html">Wall Dance</a></li>
+            <li><a href="../story/slow-swim.html">Slow Swim</a></li>
+            <li><a href="../story/dawn-chorus.html">Dawn Chorus</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="footer-access">
+          <h2 class="site-footer__heading" id="footer-access">StoryCast</h2>
+          <ul class="site-footer__links">
+            <li><a href="../about.html#mission">Our mission</a></li>
+            <li><a href="../about.html#features">Accessibility features</a></li>
+            <li><a href="../about.html#engage">Get involved</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__base">
+        <p>&copy; <span data-year>2026</span> StoryCast. Video clips and photos from the Cloudinary sample library.</p>
+        <p>Built to <a href="../about.html#conformance">WCAG 2.1 AA</a> with semantic HTML, Sass and vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+@use '../abstracts' as *;
+
+// Assist / label chip (non-interactive)
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: space(1);
+  min-height: 2rem;
+  padding-inline: space(3);
+  border-radius: corner('sm');
+  border: 1px solid color-role('outline-variant');
+  color: color-role('on-surface-variant');
+  background: color-role('surface-container-low');
+  @include type-role('label-medium');
+  white-space: nowrap;
+
+  .icon {
+    font-size: 1.125rem;
+  }
+
+  &--video {
+    border-color: transparent;
+    background: color-role('tertiary-container');
+    color: color-role('on-tertiary-container');
+  }
+
+  &--audio {
+    border-color: transparent;
+    background: color-role('secondary-container');
+    color: color-role('on-secondary-container');
+  }
+
+  &--primary {
+    border-color: transparent;
+    background: color-role('primary-container');
+    color: color-role('on-primary-container');
+  }
+
+  &--overlay {
+    border-color: transparent;
+    background: rgb(0 0 0 / 0.75);
+    color: #ffffff;
+  }
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(2);
+  list-style: none;
+  padding: 0;
+}
+
+// Filter chip (toggle button: aria-pressed)
+.filter-chip {
+  @include state-layer;
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  min-height: $touch-target;
+  padding-inline: space(4);
+  border-radius: corner('sm');
+  border: 1px solid color-role('outline');
+  color: color-role('on-surface-variant');
+  @include type-role('label-large');
+  transition: background-color $duration-medium $ease-standard;
+
+  .icon {
+    font-size: 1.125rem;
+  }
+
+  .icon--check {
+    display: none;
+  }
+
+  &[aria-pressed='true'] {
+    border-color: transparent;
+    background: color-role('secondary-container');
+    color: color-role('on-secondary-container');
+
+    .icon--check {
+      display: inline-block;
+    }
+
+    .icon--kind {
+      display: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    &[aria-pressed='true'] {
+      border: 2px solid Highlight;
+    }
+  }
+}

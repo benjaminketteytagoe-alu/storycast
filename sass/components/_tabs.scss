@@ -1,0 +1,86 @@
+@use '../abstracts' as *;
+
+// -----------------------------------------------------------------------------
+// Tabs (WAI-ARIA tabs pattern, Material 3 primary tabs styling).
+// Without JavaScript every panel is shown in order with its own heading.
+// -----------------------------------------------------------------------------
+.tabs {
+  &__list {
+    display: flex;
+    gap: space(1);
+    overflow-x: auto;
+    border-bottom: 1px solid color-role('outline-variant');
+    scrollbar-width: none;
+  }
+
+  &__tab {
+    @include state-layer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: space(2);
+    min-height: 3.5rem;
+    padding-inline: space(5);
+    border-radius: corner('md') corner('md') 0 0;
+    color: color-role('on-surface-variant');
+    @include type-role('title-small');
+    white-space: nowrap;
+
+    .icon {
+      font-size: 1.25rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: auto space(3) 0;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      background: color-role('primary');
+      transform: scaleX(0);
+      transition: transform $duration-medium $ease-emphasized;
+    }
+
+    &[aria-selected='true'] {
+      color: color-role('primary');
+
+      .icon {
+        font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      }
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &:focus-visible {
+      outline-offset: -3px;
+      box-shadow: none;
+    }
+
+    @media (forced-colors: active) {
+      &[aria-selected='true'] {
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+      }
+    }
+  }
+
+  &__panel {
+    padding-block: space(6);
+
+    &:focus-visible {
+      outline-offset: 4px;
+    }
+  }
+
+  // Panel heading is only for the no-JS / screen-reader-outline experience.
+  .js &__panel-title {
+    @include visually-hidden;
+  }
+
+  &__panel-title {
+    @include type-role('headline-small');
+    margin-block-end: space(4);
+  }
+}

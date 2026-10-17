@@ -1,0 +1,170 @@
+@use '../abstracts' as *;
+
+// -----------------------------------------------------------------------------
+// Media player frame. Native <video>/<audio> controls are kept on purpose —
+// they are keyboard and screen-reader accessible in every modern browser.
+// StoryCast adds an accessibility toolbar and live caption surfaces around it.
+// -----------------------------------------------------------------------------
+.player {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  gap: space(4);
+  padding: space(3);
+  border-radius: corner('xxl');
+  background: color-role('surface-container');
+  box-shadow: var(--sc-elev-1);
+
+  &__figure {
+    display: grid;
+    gap: space(3);
+  }
+
+  &__screen {
+    position: relative;
+    overflow: hidden;
+    border-radius: corner('xl');
+    background: #0b0730;
+  }
+
+  video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0b0730;
+  }
+
+  // Native caption styling (WebVTT ::cue)
+  video::cue {
+    font-family: $type-font-plain;
+    font-size: 1.05em;
+    line-height: 1.4;
+    color: #ffffff;
+    background: rgb(10 5 40 / 0.85);
+  }
+
+  &__art {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 7;
+    border-radius: corner('xl');
+    background: color-role('surface-container-highest');
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  audio {
+    width: 100%;
+    min-height: 3.5rem;
+    border-radius: corner('full');
+  }
+
+  &__caption {
+    padding-inline: space(2);
+    color: color-role('on-surface-variant');
+    @include type-role('body-small');
+  }
+}
+
+// Visible caption surface for audio stories (sound-cue captions).
+.live-caption {
+  display: flex;
+  align-items: center;
+  gap: space(3);
+  min-height: 3.5rem;
+  padding: space(3) space(5);
+  border-radius: corner('lg');
+  background: color-role('inverse-surface');
+  color: color-role('inverse-on-surface');
+  @include type-role('title-medium');
+  font-weight: 500;
+
+  .icon {
+    color: color-role('inverse-primary');
+  }
+
+  &:empty::before,
+  &__text:empty::before {
+    content: 'Captions appear here while the story plays.';
+    opacity: 0.8;
+    font-weight: 400;
+  }
+}
+
+// Audio-description readout for video stories
+.described {
+  display: flex;
+  gap: space(3);
+  padding: space(3) space(5);
+  border-radius: corner('lg');
+  background: color-role('tertiary-container');
+  color: color-role('on-tertiary-container');
+  @include type-role('body-medium');
+
+  &__label {
+    font-weight: 650;
+  }
+}
+
+// Accessibility toolbar (toggle buttons)
+.a11y-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: space(2);
+  padding-inline: space(1);
+
+  &__label {
+    @include type-role('label-large');
+    color: color-role('on-surface-variant');
+    margin-inline-end: space(2);
+  }
+}
+
+.toggle {
+  @include state-layer;
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  min-height: $touch-target;
+  padding-inline: space(3) space(4);
+  border-radius: corner('full');
+  border: 1px solid color-role('outline');
+  color: color-role('on-surface');
+  @include type-role('label-large');
+  transition: background-color $duration-medium $ease-standard;
+
+  .icon {
+    font-size: 1.25rem;
+  }
+
+  &[aria-pressed='true'] {
+    border-color: transparent;
+    background: color-role('primary');
+    color: color-role('on-primary');
+
+    .icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  }
+
+  &[aria-pressed='true']:focus-visible {
+    @include focus-ring;
+  }
+
+  @media (forced-colors: active) {
+    &[aria-pressed='true'] {
+      border: 3px solid Highlight;
+    }
+  }
+}
+
+.shortcut-hint {
+  margin-inline-start: auto;
+  @include type-role('body-small');
+  color: color-role('on-surface-variant');
+}
+

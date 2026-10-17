@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+// Screen-reader-only text
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// Skip link: hidden until focused, then pinned top-left above everything.
+.skip-link {
+  position: fixed;
+  top: space(3);
+  left: space(3);
+  z-index: 1000;
+  padding: space(3) space(5);
+  border-radius: corner('full');
+  background: color-role('inverse-surface');
+  color: color-role('inverse-on-surface');
+  font-weight: $type-weight-bold;
+  text-decoration: none;
+  box-shadow: var(--sc-elev-3);
+  transform: translateY(-200%);
+  transition: transform $duration-medium $ease-emphasized;
+
+  &:focus,
+  &:focus-visible {
+    transform: translateY(0);
+  }
+}
+
+// Reduce motion everywhere for users who ask for it.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

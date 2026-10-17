@@ -1,0 +1,104 @@
+@use '../abstracts' as *;
+
+.story-header {
+  display: grid;
+  gap: space(4);
+  padding-block: space(6) space(8);
+  max-width: 52rem;
+
+  h1 {
+    @include type-role('display-medium');
+  }
+
+  &__dek {
+    @include type-role('body-large');
+    font-size: 1.25rem;
+    color: color-role('on-surface-variant');
+  }
+
+  &__byline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: space(2) space(4);
+    color: color-role('on-surface-variant');
+    @include type-role('body-medium');
+  }
+
+  &__avatar {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: color-role('primary');
+    color: color-role('on-primary');
+    font-weight: 700;
+  }
+}
+
+// Main column + "Up next" sidebar.
+.story-layout {
+  display: grid;
+  gap: space(10);
+  grid-template-columns: minmax(0, 1fr);
+
+  @include up('lg') {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    align-items: start;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: space(8);
+    min-width: 0;
+  }
+
+  &__aside {
+    display: grid;
+    gap: space(8);
+
+    @include up('lg') {
+      position: sticky;
+      top: 6rem;
+    }
+  }
+
+  &__aside-title {
+    @include type-role('title-large');
+    margin-block-end: space(4);
+  }
+}
+
+.story-notes {
+  > * + * {
+    margin-block-start: space(4);
+  }
+
+  p {
+    @include type-role('body-large');
+    max-width: $type-measure;
+  }
+}
+
+.credits {
+  display: grid;
+  gap: space(3);
+
+  div {
+    display: grid;
+    grid-template-columns: minmax(8rem, 12rem) 1fr;
+    gap: space(4);
+    padding-block-end: space(3);
+    border-bottom: 1px solid color-role('outline-variant');
+  }
+
+  dt {
+    color: color-role('on-surface-variant');
+  }
+
+  dd {
+    margin: 0;
+  }
+}

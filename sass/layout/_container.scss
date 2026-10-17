@@ -1,0 +1,98 @@
+@use '../abstracts' as *;
+
+// Page wrapper — centered with fluid gutters.
+.container {
+  width: min(100% - #{$gutter} * 2, #{$content-max});
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: $section-gap;
+
+  &--tight {
+    padding-block: calc(#{$section-gap} * 0.6);
+  }
+
+  &--tonal {
+    background: color-role('surface-container-low');
+  }
+}
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: space(4) space(8);
+  margin-block-end: space(8);
+
+  &__text {
+    max-width: $prose-max;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  margin-block-end: space(3);
+  @include type-role('label-large');
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: color-role('primary');
+
+  .icon {
+    font-size: 1.25rem;
+  }
+}
+
+.section-title {
+  @include type-role('display-small');
+}
+
+.lede {
+  @include type-role('body-large');
+  color: color-role('on-surface-variant');
+  margin-block-start: space(3);
+  max-width: $type-measure;
+}
+
+.prose {
+  max-width: $type-measure;
+
+  > * + * {
+    margin-block-start: space(4);
+  }
+
+  h2 {
+    @include type-role('headline-medium');
+    margin-block-start: space(10);
+  }
+
+  h3 {
+    @include type-role('title-large');
+    margin-block-start: space(8);
+  }
+
+  p,
+  li {
+    @include type-role('body-large');
+  }
+
+  ul,
+  ol {
+    padding-inline-start: 1.4em;
+  }
+
+  li + li {
+    margin-block-start: space(2);
+  }
+}
+
+// Generic responsive grid used for card collections.
+.auto-grid {
+  --min: 17rem;
+  display: grid;
+  gap: space(6);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--min)), 1fr));
+}

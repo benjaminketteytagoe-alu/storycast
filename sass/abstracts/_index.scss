@@ -1,0 +1,6 @@
+// Single entry point for all design tokens and helpers.
+// Usage in any partial:  @use '../abstracts' as *;
+@forward 'colors' as color-*;
+@forward 'typography' as type-*;
+@forward 'spacing';
+@forward 'mixins';

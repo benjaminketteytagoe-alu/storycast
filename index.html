@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>StoryCast: Everyday Voices</title>
+  <meta name="description" content="StoryCast is an accessible microsite of short audio and video stories told by ordinary people, each with captions and a transcript.">
+  <meta name="theme-color" content="#4a35d0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,check_circle,chevron_right,close,closed_caption,contrast,dark_mode,description,download,edit_note,error,flag,forum,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,send,star,sync,verified,zoom_in&amp;display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <script>
+    // Apply the saved theme before first paint (prevents a flash of the wrong theme).
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try { var t = localStorage.getItem('storycast-theme'); if (t) root.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="app-bar" data-app-bar>
+    <div class="container app-bar__inner">
+      <a class="brand" href="index.html" aria-label="StoryCast, home">
+        <img class="brand__mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">
+        <span>Story<span class="brand__accent">Cast</span></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html" aria-current="page"><span class="icon" aria-hidden="true">home</span>Home</a></li>
+          <li><a class="site-nav__link" href="index.html#stories"><span class="icon" aria-hidden="true">auto_stories</span>Stories</a></li>
+          <li><a class="site-nav__link" href="about.html"><span class="icon" aria-hidden="true">accessibility_new</span>About &amp; access</a></li>
+        </ul>
+      </nav>
+
+      <div class="app-bar__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden>
+          <span class="icon theme-icon" aria-hidden="true">dark_mode</span>
+          <span class="visually-hidden">Dark theme</span>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+          <span class="icon" aria-hidden="true">menu</span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__panel">
+          <div>
+            <p class="hero__eyebrow">Everyday Voices</p>
+            <h1 class="hero__title" id="hero-title">Real people. Real stories. Open to everyone.</h1>
+            <p class="hero__text">StoryCast collects short stories told by ordinary people about family, work and home. Every story has captions and a transcript, and the whole site works with a keyboard.</p>
+            <div class="btn-row">
+              <a class="btn btn--on-primary btn--large" href="story/the-long-walk.html"><span class="icon icon--filled" aria-hidden="true">play_circle</span>Watch the featured story</a>
+              <a class="btn btn--outline-on-primary btn--large" href="#stories">Browse stories</a>
+            </div>
+          </div>
+          <figure class="hero__figure hero__figure--video">
+            <div class="hero__video-wrap">
+              <video class="hero__video" src="assets/media/hero-loop.mp4" poster="assets/images/hero-loop-poster.jpg" width="1280" height="720" muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video></video>
+              <button class="icon-btn icon-btn--overlay hero__video-toggle" type="button" data-hero-video-toggle hidden><span class="icon icon--filled" aria-hidden="true">pause</span><span class="visually-hidden">Pause background video</span></button>
+            </div>
+            <figcaption>A 10-second loop, no sound: colleagues at work, a shared meal, ice cream on a night out, a story festival and two friends smiling. Made with Gemini.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__text">
+            <p class="eyebrow"><span class="icon icon--filled" aria-hidden="true">star</span>Featured story</p>
+            <h2 class="section-title" id="featured-title">This week on StoryCast</h2>
+          </div>
+        </div>
+        <div class="home-featured">
+          <article class="card-shell">
+          <div class="media-card media-card--featured">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_16,c_fill,w_640,h_360,q_auto/v1781560237/samples/elephants.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:48</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:48</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="story/the-long-walk.html">The Long Walk</a></h3>
+              <p class="media-card__summary">A herd of elephants crosses open, dry ground, with the calves keeping close to the adults.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tonal" id="stories" aria-labelledby="stories-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__text">
+            <p class="eyebrow"><span class="icon" aria-hidden="true">library_music</span>The collection</p>
+            <h2 class="section-title" id="stories-title">All stories</h2>
+            <p class="lede">Three short video clips with full audio description, and one audio soundscape.</p>
+          </div>
+          <div class="filter-bar" role="group" aria-label="Filter stories by format" data-filter-bar hidden>
+            <button class="filter-chip" type="button" data-filter="all" aria-pressed="true"><span class="icon icon--check" aria-hidden="true">check</span>All</button>
+            <button class="filter-chip" type="button" data-filter="video" aria-pressed="false"><span class="icon icon--check" aria-hidden="true">check</span><span class="icon icon--kind" aria-hidden="true">movie</span>Video</button>
+            <button class="filter-chip" type="button" data-filter="audio" aria-pressed="false"><span class="icon icon--check" aria-hidden="true">check</span><span class="icon icon--kind" aria-hidden="true">graphic_eq</span>Audio</button>
+          </div>
+        </div>
+        <p class="visually-hidden" role="status" aria-live="polite" data-filter-status></p>
+        <div class="card-grid-wrap">
+        <ul class="card-grid" role="list" data-story-grid>
+          <li data-kind="video">
+        <article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_16,c_fill,w_640,h_360,q_auto/v1781560237/samples/elephants.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:48</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:48</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="story/the-long-walk.html">The Long Walk</a></h3>
+              <p class="media-card__summary">A whole herd on the move, calves in the middle.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+          </li>
+          <li data-kind="video">
+        <article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_3,c_fill,w_640,h_360,q_auto/v1781560237/samples/cld-sample-video.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:11</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:11</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="story/wall-dance.html">Wall Dance</a></h3>
+              <p class="media-card__summary">A dancer, a mural and a beat you can only see.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+          </li>
+          <li data-kind="video">
+        <article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/video/upload/so_9,c_fill,w_640,h_360,q_auto/v1781560236/samples/sea-turtle.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">movie</span>0:15</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--video"><span class="icon" aria-hidden="true">movie</span>Video</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:15</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="story/slow-swim.html">Slow Swim</a></h3>
+              <p class="media-card__summary">Fifteen seconds with a sea turtle in open water.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                <li class="chip"><span class="icon" aria-hidden="true">record_voice_over</span>Audio description</li>
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+          </li>
+          <li data-kind="audio">
+        <article class="card-shell">
+          <div class="media-card">
+            <div class="media-card__media">
+              <img class="media-card__img" src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_fill,w_640,h_360,q_auto,f_auto/v1781560235/samples/landscapes/beach-boat.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+              <span class="media-card__play"><span class="icon icon--filled" aria-hidden="true">play_arrow</span></span>
+              <span class="media-card__duration chip chip--overlay"><span class="icon" aria-hidden="true">graphic_eq</span>0:45</span>
+            </div>
+            <div class="media-card__body">
+              <p class="media-card__meta">
+                <span class="media-card__kind media-card__kind--audio"><span class="icon" aria-hidden="true">graphic_eq</span>Audio</span>
+                <span aria-hidden="true">·</span>
+                <span><span class="visually-hidden">Duration: </span>0:45</span>
+              </p>
+              <h3 class="media-card__title"><a class="media-card__link" href="story/dawn-chorus.html">Dawn Chorus</a></h3>
+              <p class="media-card__summary">One bird, then two, then the whole hedge: morning arriving.</p>
+              <ul class="media-card__features chip-list" aria-label="Access features">
+                <li class="chip"><span class="icon" aria-hidden="true">closed_caption</span>Captions</li>
+                
+                <li class="chip"><span class="icon" aria-hidden="true">description</span>Transcript</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__text">
+            <p class="eyebrow"><span class="icon" aria-hidden="true">accessibility_new</span>Built for everyone</p>
+            <h2 class="section-title" id="how-title">However you take in a story</h2>
+          </div>
+          <a class="btn btn--outlined btn--icon-end" href="about.html#features">All accessibility features<span class="icon" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <ul class="feature-grid" role="list">
+          <li class="feature">
+            <span class="icon-badge"><span class="icon" aria-hidden="true">closed_caption</span></span>
+            <h3 class="feature__title">Captions</h3>
+            <p class="feature__text">Captions are switched on by default for every video, and audio stories show live sound captions.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-badge icon-badge--secondary"><span class="icon" aria-hidden="true">description</span></span>
+            <h3 class="feature__title">Transcripts</h3>
+            <p class="feature__text">Read any story instead of watching it. Select a timestamp to jump straight to that moment.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-badge icon-badge--tertiary"><span class="icon" aria-hidden="true">keyboard</span></span>
+            <h3 class="feature__title">Keyboard first</h3>
+            <p class="feature__text">Everything works without a mouse, with clear focus outlines on every link and control.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="cta-title">
+      <div class="cta-band">
+        <img class="cta-band__photo" src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_thumb,g_face,w_320,h_320,q_auto,f_auto/v1781560244/cld-sample.jpg" alt="A young woman in round glasses laughing." width="160" height="160" loading="lazy" decoding="async">
+        <div>
+          <h2 id="cta-title">Know an everyday voice worth hearing?</h2>
+          <p>Suggest a story, give feedback or report an access problem.</p>
+        </div>
+        <a class="btn btn--filled btn--large" href="about.html#engage"><span class="icon" aria-hidden="true">edit_note</span>Get involved</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__about">
+          <a class="brand" href="index.html" aria-label="StoryCast, home">
+            <img class="brand__mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">
+            <span>Story<span class="brand__accent">Cast</span></span>
+          </a>
+          <p>Everyday Voices: short audio and video stories told by ordinary people. Every story comes with captions and a transcript.</p>
+        </div>
+        <nav aria-labelledby="footer-stories">
+          <h2 class="site-footer__heading" id="footer-stories">Stories</h2>
+          <ul class="site-footer__links">
+            <li><a href="story/the-long-walk.html">The Long Walk</a></li>
+            <li><a href="story/wall-dance.html">Wall Dance</a></li>
+            <li><a href="story/slow-swim.html">Slow Swim</a></li>
+            <li><a href="story/dawn-chorus.html">Dawn Chorus</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="footer-access">
+          <h2 class="site-footer__heading" id="footer-access">StoryCast</h2>
+          <ul class="site-footer__links">
+            <li><a href="about.html#mission">Our mission</a></li>
+            <li><a href="about.html#features">Accessibility features</a></li>
+            <li><a href="about.html#engage">Get involved</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__base">
+        <p>&copy; <span data-year>2026</span> StoryCast. Video clips and photos from the Cloudinary sample library.</p>
+        <p>Built to <a href="about.html#conformance">WCAG 2.1 AA</a> with semantic HTML, Sass and vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

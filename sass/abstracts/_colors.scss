@@ -1,0 +1,118 @@
+// =============================================================================
+// Color tokens — Material 3 inspired "StoryCast Aurora" scheme
+// -----------------------------------------------------------------------------
+// Roles follow the Material Design 3 color system (primary / secondary /
+// tertiary + tonal surfaces). Every "on-*" pairing below has been checked for
+// WCAG 2.1 AA contrast (≥ 4.5:1 for text, ≥ 3:1 for UI). See README.md.
+//
+//   primary   — vibrant indigo   (brand, primary actions, focus)
+//   secondary — deep lagoon teal  (audio stories)
+//   tertiary  — orchid magenta    (video stories, highlights)
+// =============================================================================
+
+$light: (
+  'primary':                   #4a35d0,
+  'on-primary':                #ffffff,
+  'primary-container':         #e4dfff,
+  'on-primary-container':      #170065,
+
+  'secondary':                 #006b5f,
+  'on-secondary':              #ffffff,
+  'secondary-container':       #a6f2e3,
+  'on-secondary-container':    #00201c,
+
+  'tertiary':                  #ad1660,
+  'on-tertiary':               #ffffff,
+  'tertiary-container':        #ffd9e3,
+  'on-tertiary-container':     #3e001c,
+
+
+  'error':                     #ba1a1a,
+  'on-error':                  #ffffff,
+  'error-container':           #ffdad6,
+  'on-error-container':        #410002,
+
+  'success':                   #146c2e,
+  'success-container':         #b7f1c0,
+  'on-success-container':      #002108,
+
+  'surface':                   #fcf8ff,
+  'surface-dim':               #dcd8e2,
+  'surface-bright':            #fcf8ff,
+  'surface-container-lowest':  #ffffff,
+  'surface-container-low':     #f6f2fc,
+  'surface-container':         #f0ecf7,
+  'surface-container-high':    #eae6f1,
+  'surface-container-highest': #e4e1eb,
+  'on-surface':                #1b1b21,
+  'on-surface-variant':        #47464f,
+  'outline':                   #777680,
+  'outline-variant':           #c8c5d0,
+
+  'inverse-surface':           #303036,
+  'inverse-on-surface':        #f3eff8,
+  'inverse-primary':           #c6bfff,
+
+  'scrim':                     #000000,
+  'shadow':                    #1b1060,
+);
+
+$dark: (
+  'primary':                   #c6bfff,
+  'on-primary':                #2600a1,
+  'primary-container':         #3a1fc0,
+  'on-primary-container':      #e4dfff,
+
+  'secondary':                 #84d6c7,
+  'on-secondary':              #003731,
+  'secondary-container':       #005047,
+  'on-secondary-container':    #a6f2e3,
+
+  'tertiary':                  #ffb0c9,
+  'on-tertiary':               #650033,
+  'tertiary-container':        #8c004a,
+  'on-tertiary-container':     #ffd9e3,
+
+
+  'error':                     #ffb4ab,
+  'on-error':                  #690005,
+  'error-container':           #93000a,
+  'on-error-container':        #ffdad6,
+
+  'success':                   #8fd89c,
+  'success-container':         #005320,
+  'on-success-container':      #b7f1c0,
+
+  'surface':                   #131318,
+  'surface-dim':               #131318,
+  'surface-bright':            #39383f,
+  'surface-container-lowest':  #0e0e13,
+  'surface-container-low':     #1b1b21,
+  'surface-container':         #1f1f26,
+  'surface-container-high':    #2a2930,
+  'surface-container-highest': #35343b,
+  'on-surface':                #e5e1ea,
+  'on-surface-variant':        #c8c5d0,
+  'outline':                   #928f9a,
+  'outline-variant':           #47464f,
+
+  'inverse-surface':           #e5e1ea,
+  'inverse-on-surface':        #303036,
+  'inverse-primary':           #4a35d0,
+
+  'scrim':                     #000000,
+  'shadow':                    #000000,
+);
+
+/// Emit every color role as a `--md-sys-color-*` custom property.
+@mixin emit($scheme) {
+  @each $role, $value in $scheme {
+    --md-sys-color-#{$role}: #{$value};
+  }
+}
+
+/// Read a color role as a CSS custom property.
+/// @example scss  color: colors.role('on-surface');
+@function role($name) {
+  @return var(--md-sys-color-#{$name});
+}

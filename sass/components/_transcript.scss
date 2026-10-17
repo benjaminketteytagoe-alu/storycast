@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+// -----------------------------------------------------------------------------
+// Interactive transcript — every line has a timestamp button that seeks the
+// media. The line being played is highlighted (and marked aria-current).
+// -----------------------------------------------------------------------------
+.transcript {
+  &__tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: space(3);
+    margin-block-end: space(4);
+  }
+
+  &__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: space(2);
+    list-style: none;
+    padding: 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: space(1);
+    max-height: 32rem;
+    overflow-y: auto;
+    padding: space(2);
+    margin: 0;
+    list-style: none;
+    border-radius: corner('xl');
+    background: color-role('surface-container-low');
+    border: 1px solid color-role('outline-variant');
+    scroll-padding-block: space(16);
+
+    &:focus-visible {
+      outline-offset: 2px;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: space(3) space(4);
+    align-items: start;
+    padding: space(3) space(4) space(3) space(2);
+    border-radius: corner('lg');
+    transition: background-color $duration-medium $ease-standard;
+
+    &[aria-current='true'] {
+      background: color-role('primary-container');
+      color: color-role('on-primary-container');
+
+      .transcript__time {
+        background: color-role('primary');
+        color: color-role('on-primary');
+      }
+    }
+
+    @media (forced-colors: active) {
+      &[aria-current='true'] {
+        outline: 2px solid Highlight;
+      }
+    }
+  }
+
+  &__time {
+    @include state-layer;
+    min-width: 4.25rem;
+    min-height: 2.75rem;
+    padding-inline: space(3);
+    border-radius: corner('full');
+    background: color-role('surface-container-highest');
+    color: color-role('on-surface');
+    font-family: $type-font-mono;
+    font-variant-numeric: tabular-nums;
+    @include type-role('label-large');
+  }
+
+  &__text {
+    padding-block-start: space(2);
+    @include type-role('body-large');
+  }
+
+  &__tag {
+    display: inline-block;
+    margin-inline-end: space(2);
+    padding: 0.05em 0.6em;
+    border-radius: corner('xs');
+    @include type-role('label-small');
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    vertical-align: 0.15em;
+
+    &--sound {
+      background: color-role('secondary-container');
+      color: color-role('on-secondary-container');
+    }
+
+    &--screen {
+      background: color-role('primary-container');
+      color: color-role('on-primary-container');
+    }
+
+    &--visual {
+      background: color-role('tertiary-container');
+      color: color-role('on-tertiary-container');
+    }
+  }
+
+  [aria-current='true'] &__tag {
+    outline: 1px solid currentColor;
+  }
+
+  &__item--screen .transcript__text {
+    font-weight: 500;
+    font-family: $type-font-brand;
+  }
+}
