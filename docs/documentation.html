@@ -68,6 +68,12 @@ pre{background:#f6f2fc;border:1px solid #c8c5d0;border-radius:6pt;padding:8pt;fo
 │   └── images/             
 └── docs/                   
 </code></pre>
+<h3>CSS architecture</h3>
+<ul>
+<li><strong>Cascade layers.</strong> <code>sass/main.scss</code> declares <code>@layer reset, base, components, layout, pages;</code> and loads each folder into its layer with <code>meta.load-css()</code>. Later layers win, so a page or the app bar can adjust a component without out-specifying it.</li>
+<li><strong>Tokens.</strong> Colours (<code>_colors.scss</code>, light and dark roles plus fixed media colours), type (<code>_typography.scss</code>) and spacing, shape, motion and breakpoints (<code>_spacing.scss</code>) are the only place raw values live. Partials read them through <code>color-role()</code>, <code>color-media()</code>, <code>space()</code>, <code>corner()</code> and the <code>up()</code> / <code>down()</code> breakpoint mixins.</li>
+<li><strong>BEM.</strong> Every class is <code>block__element--modifier</code>; state uses ARIA attributes or <code>.is-*</code>. Bare element selectors are kept only for <code>.prose</code> (long-form text) and native <code>&lt;video&gt;</code> / <code>&lt;audio&gt;</code>.</li>
+</ul>
 <h3>Container query</h3>
 <p>The <strong>media card</strong> (<code>sass/components/_media-card.scss</code>) responds to the width of its own container, not the viewport:</p>
 <table>
@@ -90,7 +96,7 @@ pre{background:#f6f2fc;border:1px solid #c8c5d0;border-radius:6pt;padding:8pt;fo
 <td>Horizontal card with summary and access chips (used for the featured story)</td>
 </tr>
 </tbody></table>
-<p>The story grid on the home page is also a container (<code>card-grid</code>): it switches from 1 to 2 to 4 columns based on its own width.</p>
+<p>The story grid on the home page is also a container (<code>card-grid</code>): it switches from 1 to 2 to 4 columns based on its own width. The &quot;Up next&quot; list (<code>card-stack</code>) is one column in the story sidebar, where its cards become list rows, and several columns of stacked cards when the sidebar drops below the transcript.</p>
 <h2>Running locally</h2>
 <p>Requirements: Node.js 18+.</p>
 <pre><code class="language-bash">npm install        
@@ -159,7 +165,7 @@ npm run docs:watch
 </tr>
 <tr>
 <td>Reflow and zoom (1.4.10)</td>
-<td>Single column at 320px, no horizontal scroll (checked at 390px)</td>
+<td>Single column at 320px; no horizontal scroll or overflowing content at 320, 480, 600, 768, 840, 1024, 1280 and 1920px</td>
 </tr>
 <tr>
 <td>Motion (2.2.2, 2.3.3)</td>
@@ -175,7 +181,32 @@ npm run docs:watch
 </tr>
 </tbody></table>
 <p><strong>Testing done:</strong> axe-core (WCAG 2.0/2.1 A + AA + best practice) reports 0 violations on all 6 pages in light and dark themes at 1440px and 390px. A scripted keyboard and interaction test covers tabs, menu, filters, player toggles, transcript seeking and form validation. The browser accessibility tree (what screen readers read) was reviewed on every page type: one <code>h1</code> and no skipped heading levels, header, navigation, main and footer landmarks on every page (each navigation named), no unnamed controls, and toggle states (<code>pressed</code>, <code>expanded</code>) exposed.
-<strong>Still to do by hand:</strong> screen reader passes with NVDA and VoiceOver.</p>
+<strong>Screen readers:</strong> manual results with Orca, NVDA and VoiceOver are recorded in <a href="#screen-reader-tests">Screen reader tests</a> below.</p>
+<h2 id="screen-reader-tests">Screen reader tests</h2>
+<p>Results of manual testing with real screen readers. Mark each cell <strong>Pass</strong>, <strong>Issue</strong> (with a note below the table) or leave it as <strong>–</strong> (not tested yet).</p>
+<table>
+<thead>
+<tr><th>#</th><th>Page</th><th>Do this</th><th>You should hear</th><th>Orca + Firefox (Linux)</th><th>NVDA + Firefox (Windows)</th><th>VoiceOver + Safari (macOS / iOS)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Any page</td><td>Press Tab once</td><td>&quot;Skip to main content, link&quot;</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>2</td><td>Home</td><td>Press H repeatedly</td><td>The page title (h1), then &quot;This week on StoryCast&quot;, &quot;All stories&quot; and the other section headings in order</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>3</td><td>Home</td><td>Move by landmark (Orca M, NVDA D, VoiceOver rotor → Landmarks)</td><td>Banner, &quot;Main&quot; navigation, main, the page sections, footer navigation, content info</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>4</td><td>Home</td><td>Move to the hero video button</td><td>&quot;Pause background video, button&quot;</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>5</td><td>Home</td><td>Activate the &quot;Audio&quot; filter</td><td>&quot;Audio, toggle button, pressed&quot;, then &quot;Showing 1 audio story.&quot;</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>6</td><td>Story</td><td>Move to the tabs, then press the arrow keys</td><td>&quot;Transcript, tab, selected, 1 of 3&quot;, then the next tab</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>7</td><td>Story</td><td>Toggle &quot;Captions&quot;</td><td>&quot;Captions, toggle button, pressed&quot; / &quot;not pressed&quot;</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>8</td><td>Story</td><td>Turn on &quot;Audio description&quot; and play</td><td>Each description is spoken. Note whether it talks over the screen reader's own voice</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>9</td><td>Story</td><td>Activate a transcript timestamp</td><td>&quot;Play from 24 seconds, button&quot;, then the video jumps there</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>10</td><td>Story</td><td>Use the native video or audio controls</td><td>Play, mute, time slider and full screen each have a name</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>11</td><td>About</td><td>Submit the empty form</td><td>The error summary is read (&quot;There are 5 problems&quot;), and each field announces its error</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>12</td><td>About</td><td>Fill in the form correctly and submit</td><td>The success message is read</td><td>–</td><td>–</td><td>–</td></tr>
+<tr><td>13</td><td>Any page, narrow window or 400% zoom</td><td>Open and close the menu, then press Esc</td><td>&quot;Menu, button, collapsed&quot; / &quot;expanded&quot;; focus returns to the menu button</td><td>–</td><td>–</td><td>–</td></tr>
+</tbody>
+</table>
+<p><strong>Notes:</strong> <em>none yet</em></p>
+<p>Keys: <strong>Orca</strong> (Super + Alt + S to start; Orca key = Insert or Caps Lock; Orca + A switches browse/focus mode). <strong>NVDA</strong> (free from nvaccess.org, Windows only; Insert + Space switches browse/focus mode; Insert + F7 lists headings and links). <strong>VoiceOver</strong> (Cmd + F5 on a Mac; Settings → Accessibility → VoiceOver on iPhone; VO + U or a two-finger twist opens the rotor).</p>
+<p>To test from another device, run <code>npm run serve</code> and open <code>http://&lt;this-computer's-IP&gt;:8080</code> (find it with <code>hostname -I</code>); from a VirtualBox VM use <code>http://10.0.2.2:8080</code>.</p>
 <h2>Media sources</h2>
 <p>The story videos and photos are linked directly from the Cloudinary sample library. The URLs use Cloudinary transformations (<code>c_limit,w_1280,q_auto</code> for video, <code>so_&lt;seconds&gt;</code> for poster frames, <code>c_fill</code> / <code>c_thumb,g_face</code> for photos), so each video loads at about 2 to 4.5 MB instead of 28 to 39 MB.</p>
 <table>

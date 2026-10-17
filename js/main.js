@@ -332,6 +332,7 @@
         errors.forEach(([name, msg]) => {
           const li = document.createElement('li');
           const a = document.createElement('a');
+          a.className = 'error-summary__link';
           a.href = `#${fieldFor(name).id || 'engage-form'}`;
           a.textContent = msg;
           a.addEventListener('click', (ev) => { ev.preventDefault(); fieldFor(name).focus(); });

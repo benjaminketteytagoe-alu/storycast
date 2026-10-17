@@ -4,32 +4,59 @@
 //
 // Architecture (7-1 inspired):
 //   abstracts/  tokens (_colors, _typography, _spacing) + mixins — no CSS output
-//   base/       reset, theme custom properties, element defaults, a11y helpers
+//   base/       reset, theme custom properties, element defaults, text styles,
+//               a11y helpers
 //   layout/     page container, app bar, footer
 //   components/ reusable UI (buttons, chips, media card, player, tabs, …)
 //   pages/      page-specific composition
+//
+// Cascade layers: each folder is loaded into its own layer, declared once
+// below in priority order (later layers win). Specificity then only matters
+// inside a layer. Layout comes after components because the page frame
+// (app bar, footer) adjusts components placed inside it, and pages come
+// last so a page style never has to out-specify a component.
+//
+// Naming: BEM (block__element--modifier). State uses `.is-*` classes or ARIA
+// attributes. Bare element selectors appear only where the markup is not ours
+// to class: `.prose` (long-form text) and native <video>/<audio>.
 // =============================================================================
 
-@use 'base/reset';
-@use 'base/themes';
-@use 'base/base';
-@use 'base/a11y';
+@use 'sass:meta';
 
-@use 'layout/container';
-@use 'layout/header';
-@use 'layout/footer';
+@layer reset, base, components, layout, pages;
 
-@use 'components/icons';
-@use 'components/buttons';
-@use 'components/chips';
-@use 'components/media-card';
-@use 'components/hero';
-@use 'components/player';
-@use 'components/tabs';
-@use 'components/transcript';
-@use 'components/features';
-@use 'components/forms';
+@layer reset {
+  @include meta.load-css('base/reset');
+}
 
-@use 'pages/home';
-@use 'pages/story';
-@use 'pages/about';
+@layer base {
+  @include meta.load-css('base/themes');
+  @include meta.load-css('base/base');
+  @include meta.load-css('base/text');
+  @include meta.load-css('base/a11y');
+}
+
+@layer components {
+  @include meta.load-css('components/icons');
+  @include meta.load-css('components/buttons');
+  @include meta.load-css('components/chips');
+  @include meta.load-css('components/media-card');
+  @include meta.load-css('components/hero');
+  @include meta.load-css('components/player');
+  @include meta.load-css('components/tabs');
+  @include meta.load-css('components/transcript');
+  @include meta.load-css('components/features');
+  @include meta.load-css('components/forms');
+}
+
+@layer layout {
+  @include meta.load-css('layout/container');
+  @include meta.load-css('layout/header');
+  @include meta.load-css('layout/footer');
+}
+
+@layer pages {
+  @include meta.load-css('pages/home');
+  @include meta.load-css('pages/story');
+  @include meta.load-css('pages/about');
+}

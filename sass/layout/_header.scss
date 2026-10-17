@@ -111,7 +111,7 @@
 }
 
 // Compact layout: the navigation collapses into a disclosure panel.
-@media (max-width: 52.49rem) {
+@include down('md') {
   .js .app-bar .menu-toggle {
     display: inline-grid;
   }

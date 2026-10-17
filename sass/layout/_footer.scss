@@ -19,10 +19,10 @@
 
   &__about {
     max-width: 30rem;
+  }
 
-    p {
-      margin-block-start: space(4);
-    }
+  &__text {
+    margin-block-start: space(4);
   }
 
   &__heading {
@@ -38,18 +38,18 @@
     padding: 0;
     display: grid;
     gap: space(1);
+  }
 
-    a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 2.75rem;
-      color: color-role('on-surface-variant');
-      text-decoration: none;
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: color-role('on-surface-variant');
+    text-decoration: none;
 
-      &:hover {
-        color: color-role('primary');
-        text-decoration: underline;
-      }
+    &:hover {
+      color: color-role('primary');
+      text-decoration: underline;
     }
   }
 

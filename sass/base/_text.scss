@@ -1,0 +1,58 @@
+@use '../abstracts' as *;
+
+// Shared text styles (eyebrow, section title, lede, long-form prose).
+// They sit in the base layer so components and page panels can restyle them.
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  margin-block-end: space(3);
+  @include type-role('label-large');
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: color-role('primary');
+}
+
+.section-title {
+  @include type-role('display-small');
+}
+
+.lede {
+  @include type-role('body-large');
+  color: color-role('on-surface-variant');
+  margin-block-start: space(3);
+  max-width: $type-measure;
+}
+
+.prose {
+  max-width: $type-measure;
+
+  > * + * {
+    margin-block-start: space(4);
+  }
+
+  h2 {
+    @include type-role('headline-medium');
+    margin-block-start: space(10);
+  }
+
+  h3 {
+    @include type-role('title-large');
+    margin-block-start: space(8);
+  }
+
+  p,
+  li {
+    @include type-role('body-large');
+  }
+
+  ul,
+  ol {
+    padding-inline-start: 1.4em;
+  }
+
+  li + li {
+    margin-block-start: space(2);
+  }
+}
+

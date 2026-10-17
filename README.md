@@ -57,6 +57,12 @@ storycast/
 └── docs/                   
 ```
 
+### CSS architecture
+
+- **Cascade layers.** `sass/main.scss` declares `@layer reset, base, components, layout, pages;` and loads each folder into its layer with `meta.load-css()`. Later layers win, so a page or the app bar can adjust a component without out-specifying it.
+- **Tokens.** Colours (`_colors.scss`, light and dark roles plus fixed media colours), type (`_typography.scss`) and spacing, shape, motion and breakpoints (`_spacing.scss`) are the only place raw values live. Partials read them through `color-role()`, `color-media()`, `space()`, `corner()` and the `up()` / `down()` breakpoint mixins.
+- **BEM.** Every class is `block__element--modifier`; state uses ARIA attributes or `.is-*`. Bare element selectors are kept only for `.prose` (long-form text) and native `<video>` / `<audio>`.
+
 ### Container query
 
 The **media card** (`sass/components/_media-card.scss`) responds to the width of its own container, not the viewport:
@@ -67,7 +73,7 @@ The **media card** (`sass/components/_media-card.scss`) responds to the width of
 | 18.5rem to 40rem | Stacked card: 16:9 thumbnail above the text (used in the story grid) |
 | 40rem and up | Horizontal card with summary and access chips (used for the featured story) |
 
-The story grid on the home page is also a container (`card-grid`): it switches from 1 to 2 to 4 columns based on its own width.
+The story grid on the home page is also a container (`card-grid`): it switches from 1 to 2 to 4 columns based on its own width. The "Up next" list (`card-stack`) is one column in the story sidebar, where its cards become list rows, and several columns of stacked cards when the sidebar drops below the transcript.
 
 ## Running locally
 
@@ -108,13 +114,39 @@ npm run docs:watch
 | Focus visible (2.4.7) | A 3px two-tone focus ring on every interactive element |
 | ARIA where needed | `aria-current` (nav, breadcrumb, transcript line), `aria-pressed` (toggles, filters), `aria-expanded`/`aria-controls` (menu), `role="tablist"`/`tab`/`tabpanel`, `role="status"` (filter results, form success) |
 | Forms (3.3.1–3.3.3) | Visible labels, hints with `aria-describedby`, inline errors, `aria-invalid`, an error summary that receives focus |
-| Reflow and zoom (1.4.10) | Single column at 320px, no horizontal scroll (checked at 390px) |
+| Reflow and zoom (1.4.10) | Single column at 320px; no horizontal scroll or overflowing content at 320, 480, 600, 768, 840, 1024, 1280 and 1920px |
 | Motion (2.2.2, 2.3.3) | The home hero has a muted 10-second loop with a visible Pause/Play button. It doesn't start if `prefers-reduced-motion` is on (or without JS), and it has a text description. `prefers-reduced-motion` also disables transitions and smooth scrolling. No other media autoplays and nothing flashes |
 | Themes | Follows the system theme; a toggle stores the choice; `forced-colors` (Windows High Contrast) is supported |
 | Touch targets (2.5.8) | Interactive elements are at least 44 to 48px |
 
 **Testing done:** axe-core (WCAG 2.0/2.1 A + AA + best practice) reports 0 violations on all 6 pages in light and dark themes at 1440px and 390px. A scripted keyboard and interaction test covers tabs, menu, filters, player toggles, transcript seeking and form validation. The browser accessibility tree (what screen readers read) was reviewed on every page type: one `h1` and no skipped heading levels, header, navigation, main and footer landmarks on every page (each navigation named), no unnamed controls, and toggle states (`pressed`, `expanded`) exposed.
-**Still to do by hand:** screen reader passes with NVDA and VoiceOver.
+**Screen readers:** manual results with Orca, NVDA and VoiceOver are recorded in [Screen reader tests](#screen-reader-tests) below.
+
+## Screen reader tests
+
+Results of manual testing with real screen readers. Mark each cell **Pass**, **Issue** (with a note below the table) or leave it as **–** (not tested yet).
+
+| # | Page | Do this | You should hear | Orca + Firefox (Linux) | NVDA + Firefox (Windows) | VoiceOver + Safari (macOS / iOS) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Any page | Press Tab once | "Skip to main content, link" | – | – | – |
+| 2 | Home | Press H repeatedly | The page title (h1), then "This week on StoryCast", "All stories" and the other section headings in order | – | – | – |
+| 3 | Home | Move by landmark (Orca M, NVDA D, VoiceOver rotor → Landmarks) | Banner, "Main" navigation, main, the page sections, footer navigation, content info | – | – | – |
+| 4 | Home | Move to the hero video button | "Pause background video, button" | – | – | – |
+| 5 | Home | Activate the "Audio" filter | "Audio, toggle button, pressed", then "Showing 1 audio story." | – | – | – |
+| 6 | Story | Move to the tabs, then press the arrow keys | "Transcript, tab, selected, 1 of 3", then the next tab | – | – | – |
+| 7 | Story | Toggle "Captions" | "Captions, toggle button, pressed" / "not pressed" | – | – | – |
+| 8 | Story | Turn on "Audio description" and play | Each description is spoken. Note whether it talks over the screen reader's own voice | – | – | – |
+| 9 | Story | Activate a transcript timestamp | "Play from 24 seconds, button", then the video jumps there | – | – | – |
+| 10 | Story | Use the native video or audio controls | Play, mute, time slider and full screen each have a name | – | – | – |
+| 11 | About | Submit the empty form | The error summary is read ("There are 5 problems"), and each field announces its error | – | – | – |
+| 12 | About | Fill in the form correctly and submit | The success message is read | – | – | – |
+| 13 | Any page, narrow window or 400% zoom | Open and close the menu, then press Esc | "Menu, button, collapsed" / "expanded"; focus returns to the menu button | – | – | – |
+
+**Notes:** _none yet_
+
+Keys: **Orca** (Super + Alt + S to start; Orca key = Insert or Caps Lock; Orca + A switches browse/focus mode). **NVDA** (free from nvaccess.org, Windows only; Insert + Space switches browse/focus mode; Insert + F7 lists headings and links). **VoiceOver** (Cmd + F5 on a Mac; Settings → Accessibility → VoiceOver on iPhone; VO + U or a two-finger twist opens the rotor).
+
+To test from another device, run `npm run serve` and open `http://<this-computer's-IP>:8080` (find it with `hostname -I`); from a VirtualBox VM use `http://10.0.2.2:8080`.
 
 ## Media sources
 

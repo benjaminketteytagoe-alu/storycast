@@ -275,9 +275,13 @@
   }
 }
 
+// "Up next" list: one column in the narrow sidebar (cards become list rows
+// through the media-card container query), several columns of stacked cards
+// when the sidebar drops below the main column.
 .card-stack {
   display: grid;
   gap: space(3);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
   list-style: none;
   padding: 0;
 }

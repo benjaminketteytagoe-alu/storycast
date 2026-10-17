@@ -11,18 +11,5 @@
   flex-wrap: wrap;
   align-items: center;
   gap: space(2);
-
-  &__status {
-    margin-inline-start: space(2);
-    color: color-role('on-surface-variant');
-    @include type-role('body-small');
-  }
 }
 
-.story-empty {
-  padding: space(10);
-  text-align: center;
-  border-radius: corner('xl');
-  background: color-role('surface-container-low');
-  color: color-role('on-surface-variant');
-}

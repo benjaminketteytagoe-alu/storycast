@@ -11,7 +11,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,check_circle,chevron_right,close,closed_caption,contrast,dark_mode,description,download,edit_note,error,flag,forum,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,send,star,sync,verified,zoom_in&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,chevron_right,close,closed_caption,dark_mode,description,download,edit_note,error,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,star,sync&amp;display=swap">
   <link rel="stylesheet" href="css/main.css">
   <script>
     // Apply the saved theme before first paint (prevents a flash of the wrong theme).
@@ -67,12 +67,12 @@
               <a class="btn btn--outline-on-primary btn--large" href="#stories">Browse stories</a>
             </div>
           </div>
-          <figure class="hero__figure hero__figure--video">
+          <figure class="hero__figure">
             <div class="hero__video-wrap">
               <video class="hero__video" src="assets/media/hero-loop.mp4" poster="assets/images/hero-loop-poster.jpg" width="1280" height="720" muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video></video>
-              <button class="icon-btn icon-btn--overlay hero__video-toggle" type="button" data-hero-video-toggle hidden><span class="icon icon--filled" aria-hidden="true">pause</span><span class="visually-hidden">Pause background video</span></button>
+              <button class="icon-btn hero__video-toggle" type="button" data-hero-video-toggle hidden><span class="icon icon--filled" aria-hidden="true">pause</span><span class="visually-hidden">Pause background video</span></button>
             </div>
-            <figcaption>A 10-second loop, no sound: colleagues at work, a shared meal, ice cream on a night out, a story festival and two friends smiling. Made with Gemini.</figcaption>
+            <figcaption class="hero__caption">A 10-second loop, no sound: colleagues at work, a shared meal, ice cream on a night out, a story festival and two friends smiling. Made with Gemini.</figcaption>
           </figure>
         </div>
       </div>
@@ -82,7 +82,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-header__text">
-            <p class="eyebrow"><span class="icon icon--filled" aria-hidden="true">star</span>Featured story</p>
+            <p class="eyebrow"><span class="icon icon--filled icon--sm" aria-hidden="true">star</span>Featured story</p>
             <h2 class="section-title" id="featured-title">This week on StoryCast</h2>
           </div>
         </div>
@@ -118,7 +118,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-header__text">
-            <p class="eyebrow"><span class="icon" aria-hidden="true">library_music</span>The collection</p>
+            <p class="eyebrow"><span class="icon icon--sm" aria-hidden="true">library_music</span>The collection</p>
             <h2 class="section-title" id="stories-title">All stories</h2>
             <p class="lede">Three short video clips with full audio description, and one audio soundscape.</p>
           </div>
@@ -240,7 +240,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-header__text">
-            <p class="eyebrow"><span class="icon" aria-hidden="true">accessibility_new</span>Built for everyone</p>
+            <p class="eyebrow"><span class="icon icon--sm" aria-hidden="true">accessibility_new</span>Built for everyone</p>
             <h2 class="section-title" id="how-title">However you take in a story</h2>
           </div>
           <a class="btn btn--outlined btn--icon-end" href="about.html#features">All accessibility features<span class="icon" aria-hidden="true">arrow_forward</span></a>
@@ -269,8 +269,8 @@
       <div class="cta-band">
         <img class="cta-band__photo" src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_thumb,g_face,w_320,h_320,q_auto,f_auto/v1781560244/cld-sample.jpg" alt="A young woman in round glasses laughing." width="160" height="160" loading="lazy" decoding="async">
         <div>
-          <h2 id="cta-title">Know an everyday voice worth hearing?</h2>
-          <p>Suggest a story, give feedback or report an access problem.</p>
+          <h2 class="cta-band__title" id="cta-title">Know an everyday voice worth hearing?</h2>
+          <p class="cta-band__text">Suggest a story, give feedback or report an access problem.</p>
         </div>
         <a class="btn btn--filled btn--large" href="about.html#engage"><span class="icon" aria-hidden="true">edit_note</span>Get involved</a>
       </div>
@@ -285,23 +285,23 @@
             <img class="brand__mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">
             <span>Story<span class="brand__accent">Cast</span></span>
           </a>
-          <p>Everyday Voices: short audio and video stories told by ordinary people. Every story comes with captions and a transcript.</p>
+          <p class="site-footer__text">Everyday Voices: short audio and video stories told by ordinary people. Every story comes with captions and a transcript.</p>
         </div>
         <nav aria-labelledby="footer-stories">
           <h2 class="site-footer__heading" id="footer-stories">Stories</h2>
           <ul class="site-footer__links">
-            <li><a href="story/the-long-walk.html">The Long Walk</a></li>
-            <li><a href="story/wall-dance.html">Wall Dance</a></li>
-            <li><a href="story/slow-swim.html">Slow Swim</a></li>
-            <li><a href="story/dawn-chorus.html">Dawn Chorus</a></li>
+            <li><a class="site-footer__link" href="story/the-long-walk.html">The Long Walk</a></li>
+            <li><a class="site-footer__link" href="story/wall-dance.html">Wall Dance</a></li>
+            <li><a class="site-footer__link" href="story/slow-swim.html">Slow Swim</a></li>
+            <li><a class="site-footer__link" href="story/dawn-chorus.html">Dawn Chorus</a></li>
           </ul>
         </nav>
         <nav aria-labelledby="footer-access">
           <h2 class="site-footer__heading" id="footer-access">StoryCast</h2>
           <ul class="site-footer__links">
-            <li><a href="about.html#mission">Our mission</a></li>
-            <li><a href="about.html#features">Accessibility features</a></li>
-            <li><a href="about.html#engage">Get involved</a></li>
+            <li><a class="site-footer__link" href="about.html#mission">Our mission</a></li>
+            <li><a class="site-footer__link" href="about.html#features">Accessibility features</a></li>
+            <li><a class="site-footer__link" href="about.html#engage">Get involved</a></li>
           </ul>
         </nav>
       </div>

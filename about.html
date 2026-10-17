@@ -57,10 +57,10 @@
   <main id="main" tabindex="-1">
     <div class="container">
       <header class="page-hero">
-        <h1>Everyday People by Benjamin Kettey-Tagoe.</h1>
+        <h1 class="page-hero__title">Everyday People by Benjamin Kettey-Tagoe.</h1>
         <p class="lede">StoryCast shares short stories told by ordinary people, and makes sure everyone can follow them, whether they watch, listen or read.</p>
         <nav aria-label="On this page">
-          <ul class="chip-list" style="margin-top:1.5rem">
+          <ul class="chip-list page-hero__links">
             <li><a class="btn btn--filled" href="#mission">Mission</a></li>
             <li><a class="btn btn--tonal" href="#features">Accessibility features</a></li>
             <li><a class="btn btn--tonal" href="#engage">Get involved</a></li>
@@ -72,7 +72,7 @@
     <section class="section" id="mission" aria-labelledby="mission-title">
       <div class="container mission">
         <div class="prose">
-          <p class="eyebrow"><span class="icon" aria-hidden="true">flag</span>Our mission</p>
+          <p class="eyebrow"><span class="icon icon--sm" aria-hidden="true">flag</span>Our mission</p>
           <h2 class="section-title" id="mission-title">Ordinary lives, worth hearing</h2>
           <p>We’ve got the dreamers. We’ve got the doers.
             We’ve got the saints, the rebels, the believers, and the doubters.
@@ -87,11 +87,11 @@
         </div>
         <div class="mission__aside">
         <figure class="mission__figure">
-          <img src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_fill,w_960,h_640,q_auto,f_auto/v1781560234/samples/people/jazz.jpg" alt="An outdoor street concert: a saxophonist and a singer in a hat perform under autumn trees while a woman dances on the stage behind them." width="960" height="640" loading="lazy" decoding="async">
+          <img class="mission__img" src="https://res.cloudinary.com/dl2fjmhft/image/upload/c_fill,w_960,h_640,q_auto,f_auto/v1781560234/samples/people/jazz.jpg" alt="An outdoor street concert: a saxophonist and a singer in a hat perform under autumn trees while a woman dances on the stage behind them." width="960" height="640" loading="lazy" decoding="async">
         </figure>
         <blockquote class="mission__quote">
-          <p>“A story isn’t finished until everyone can get to the end of it.”</p>
-          <footer>The StoryCast design principle</footer>
+          <p class="mission__quote-text">“A story isn’t finished until everyone can get to the end of it.”</p>
+          <footer class="mission__quote-source">The StoryCast design principle</footer>
         </blockquote>
         </div>
       </div>
@@ -101,7 +101,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-header__text">
-            <p class="eyebrow"><span class="icon icon--filled" aria-hidden="true">verified</span>Accessibility features</p>
+            <p class="eyebrow"><span class="icon icon--filled icon--sm" aria-hidden="true">verified</span>Accessibility features</p>
             <h2 class="section-title" id="features-title">What every story includes</h2>
           </div>
         </div>
@@ -141,31 +141,31 @@
       <div class="container">
         <div class="section-header">
           <div class="section-header__text">
-            <p class="eyebrow"><span class="icon" aria-hidden="true">forum</span>Get involved</p>
+            <p class="eyebrow"><span class="icon icon--sm" aria-hidden="true">forum</span>Get involved</p>
             <h2 class="section-title" id="engage-title">How to engage with StoryCast</h2>
           </div>
         </div>
         <ol class="steps">
-          <li><p>So look in the mirror today. Take a good look.You are a vital piece of this giant, gorgeous puzzle.</p></li>
-          <li><h3>Read along</h3><p>Stand tall. Sing loud. Live your truth. Because the world doesn’t move because of the elite few—it spins on the shoulders of Everyday People!</p></li>
-          <li><h3>Share what worked</h3><p>Tell us if a caption was unclear, a description missed something, or a control got in your way.</p></li>
-          <li><h3>Suggest a voice</h3><p>Know a story told by an ordinary person that more people should hear? Send us the link or the idea.</p></li>
+          <li class="steps__item"><p class="steps__text">So look in the mirror today. Take a good look.You are a vital piece of this giant, gorgeous puzzle.</p></li>
+          <li class="steps__item"><h3 class="steps__title">Read along</h3><p class="steps__text">Stand tall. Sing loud. Live your truth. Because the world doesn’t move because of the elite few—it spins on the shoulders of Everyday People!</p></li>
+          <li class="steps__item"><h3 class="steps__title">Share what worked</h3><p class="steps__text">Tell us if a caption was unclear, a description missed something, or a control got in your way.</p></li>
+          <li class="steps__item"><h3 class="steps__title">Suggest a voice</h3><p class="steps__text">Know a story told by an ordinary person that more people should hear? Send us the link or the idea.</p></li>
         </ol>
 
-        <div class="engage" style="margin-top:3rem">
+        <div class="engage">
           <div class="prose">
             <h3>Send feedback or a story idea</h3>
             <p>Fields marked <span class="field__required">*</span> are required. We’ll only use your email to reply to you.</p>
             <div class="contact-card">
-              <h3>Prefer another way?</h3>
-              <p>Email <a href="mailto:b.kettey-ta@alustudent.com">b.kettey-ta@alustudent.com</a>. This is where the magic hiding inside the word people comes alive. We are eight billion fiercely stubborn, beautifully messy individuals, all crammed onto one spinning rock, trying to figure out the rules as we go.</p>
+              <h3 class="contact-card__title">Prefer another way?</h3>
+              <p>Email <a class="contact-card__link" href="mailto:b.kettey-ta@alustudent.com">b.kettey-ta@alustudent.com</a>. This is where the magic hiding inside the word people comes alive. We are eight billion fiercely stubborn, beautifully messy individuals, all crammed onto one spinning rock, trying to figure out the rules as we go.</p>
             </div>
           </div>
 
           <div>
             <div class="error-summary" tabindex="-1" data-error-summary hidden aria-labelledby="error-summary-title">
-              <h2 id="error-summary-title">There is a problem</h2>
-              <ul data-error-list></ul>
+              <h2 class="error-summary__title" id="error-summary-title">There is a problem</h2>
+              <ul class="error-summary__list" data-error-list></ul>
             </div>
 
             <form class="form" id="engage-form" novalidate data-form>
@@ -184,11 +184,11 @@
               </div>
 
               <fieldset class="choice-group" aria-describedby="topic-error">
-                <legend>What is this about? <span class="field__required" aria-hidden="true">*</span></legend>
+                <legend class="choice-group__legend">What is this about? <span class="field__required" aria-hidden="true">*</span></legend>
                 <div class="choice-group__options">
-                  <label class="choice"><input type="radio" name="topic" value="feedback" required>Feedback</label>
-                  <label class="choice"><input type="radio" name="topic" value="story">Story idea</label>
-                  <label class="choice"><input type="radio" name="topic" value="access">Access problem</label>
+                  <label class="choice"><input class="choice__input" type="radio" name="topic" value="feedback" required>Feedback</label>
+                  <label class="choice"><input class="choice__input" type="radio" name="topic" value="story">Story idea</label>
+                  <label class="choice"><input class="choice__input" type="radio" name="topic" value="access">Access problem</label>
                 </div>
                 <p class="field__error" id="topic-error" data-error-for="topic"></p>
               </fieldset>
@@ -196,12 +196,12 @@
               <div class="field">
                 <label class="field__label" for="message">Your message <span class="field__required" aria-hidden="true">*</span></label>
                 <p class="field__hint" id="message-hint">At least 20 characters. If something didn’t work, tell us which story and what happened.</p>
-                <textarea class="field__control" id="message" name="message" rows="5" required minlength="20" aria-describedby="message-hint message-error"></textarea>
+                <textarea class="field__control field__control--multiline" id="message" name="message" rows="5" required minlength="20" aria-describedby="message-hint message-error"></textarea>
                 <p class="field__error" id="message-error" data-error-for="message"></p>
               </div>
 
               <div class="field">
-                <label class="checkbox"><input type="checkbox" name="consent" id="consent" required aria-describedby="consent-error"><span>I agree that StoryCast can store my message to reply to me. <span class="field__required" aria-hidden="true">*</span></span></label>
+                <label class="checkbox"><input class="checkbox__input" type="checkbox" name="consent" id="consent" required aria-describedby="consent-error"><span>I agree that StoryCast can store my message to reply to me. <span class="field__required" aria-hidden="true">*</span></span></label>
                 <p class="field__error" id="consent-error" data-error-for="consent"></p>
               </div>
 
@@ -214,7 +214,7 @@
             <div class="form-success" tabindex="-1" role="status" data-form-success hidden>
               <span class="icon icon--filled" aria-hidden="true">check_circle</span>
               <div>
-                <h3>Thank you, your message is ready</h3>
+                <h3 class="form-success__title">Thank you, your message is ready</h3>
                 <p>In the live service this would now be sent to the StoryCast team. <a href="#engage-form" data-form-reset>Send another message</a></p>
               </div>
             </div>
@@ -226,9 +226,9 @@
     <section class="section" id="conformance" aria-labelledby="conformance-title">
       <div class="container">
         <div class="conformance">
-          <p class="conformance__badge" aria-hidden="true"><span>AA<small>WCAG 2.1</small></span></p>
+          <p class="conformance__badge" aria-hidden="true"><span>AA<small class="conformance__badge-label">WCAG 2.1</small></span></p>
           <div class="conformance__text prose">
-            <h2 id="conformance-title" style="margin-top:0">Accessibility statement</h2>
+            <h2 class="conformance__title" id="conformance-title">Accessibility statement</h2>
             <p>We are the introverts hiding behind massive headphones, creating masterpieces in quiet rooms, and we are the extroverts high-fiving strangers on the subway. We see the world through a million different lenses. We love differently, we dream differently, we vote differently, and we argue fiercely.</p>
           </div>
         </div>
@@ -244,23 +244,23 @@
             <img class="brand__mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">
             <span>Story<span class="brand__accent">Cast</span></span>
           </a>
-          <p>Because "Everyday People" doesn’t mean ordinary. It means the absolute bedrock of humanity. It means the nurse holding a hand at midnight, the teacher refusing to give up on the kid in the back row, and the neighbor sharing a fresh loaf of bread over the fence. There are no VIP ropes here. There are no exclusive guest lists.</p>
+          <p class="site-footer__text">Because "Everyday People" doesn’t mean ordinary. It means the absolute bedrock of humanity. It means the nurse holding a hand at midnight, the teacher refusing to give up on the kid in the back row, and the neighbor sharing a fresh loaf of bread over the fence. There are no VIP ropes here. There are no exclusive guest lists.</p>
         </div>
         <nav aria-labelledby="footer-stories">
           <h2 class="site-footer__heading" id="footer-stories">Stories</h2>
           <ul class="site-footer__links">
-            <li><a href="story/the-long-walk.html">The Long Walk</a></li>
-            <li><a href="story/wall-dance.html">Wall Dance</a></li>
-            <li><a href="story/slow-swim.html">Slow Swim</a></li>
-            <li><a href="story/dawn-chorus.html">Dawn Chorus</a></li>
+            <li><a class="site-footer__link" href="story/the-long-walk.html">The Long Walk</a></li>
+            <li><a class="site-footer__link" href="story/wall-dance.html">Wall Dance</a></li>
+            <li><a class="site-footer__link" href="story/slow-swim.html">Slow Swim</a></li>
+            <li><a class="site-footer__link" href="story/dawn-chorus.html">Dawn Chorus</a></li>
           </ul>
         </nav>
         <nav aria-labelledby="footer-access">
           <h2 class="site-footer__heading" id="footer-access">StoryCast</h2>
           <ul class="site-footer__links">
-            <li><a href="about.html#mission">Our mission</a></li>
-            <li><a href="about.html#features">Accessibility features</a></li>
-            <li><a href="about.html#engage">Get involved</a></li>
+            <li><a class="site-footer__link" href="about.html#mission">Our mission</a></li>
+            <li><a class="site-footer__link" href="about.html#features">Accessibility features</a></li>
+            <li><a class="site-footer__link" href="about.html#engage">Get involved</a></li>
           </ul>
         </nav>
       </div>

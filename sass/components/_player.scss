@@ -24,13 +24,13 @@
     position: relative;
     overflow: hidden;
     border-radius: corner('xl');
-    background: #0b0730;
+    background: color-media('backdrop');
   }
 
   video {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #0b0730;
+    background: color-media('backdrop');
   }
 
   // Native caption styling (WebVTT ::cue)
@@ -38,8 +38,8 @@
     font-family: $type-font-plain;
     font-size: 1.05em;
     line-height: 1.4;
-    color: #ffffff;
-    background: rgb(10 5 40 / 0.85);
+    color: color-media('on-backdrop');
+    background: color-media('cue');
   }
 
   &__art {
@@ -49,11 +49,12 @@
     border-radius: corner('xl');
     background: color-role('surface-container-highest');
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  }
+
+  &__art-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   audio {
@@ -117,11 +118,6 @@
   gap: space(2);
   padding-inline: space(1);
 
-  &__label {
-    @include type-role('label-large');
-    color: color-role('on-surface-variant');
-    margin-inline-end: space(2);
-  }
 }
 
 .toggle {

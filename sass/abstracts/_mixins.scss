@@ -10,6 +10,14 @@
   }
 }
 
+/// Below a breakpoint (the mirror of `up`).
+/// @example scss  @include mixins.down('md') { … }
+@mixin down($bp) {
+  @media (max-width: (map.get(spacing.$breakpoints, $bp) - 0.01rem)) {
+    @content;
+  }
+}
+
 /// Material "state layer": a tinted overlay that signals hover / focus /
 /// pressed without changing the underlying color contrast.
 @mixin state-layer($color: currentColor) {

@@ -11,7 +11,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,check_circle,chevron_right,close,closed_caption,contrast,dark_mode,description,download,edit_note,error,flag,forum,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,send,star,sync,verified,zoom_in&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;icon_names=accessibility_new,arrow_forward,auto_stories,check,chevron_right,close,closed_caption,dark_mode,description,download,edit_note,error,graphic_eq,groups,home,info,keyboard,library_music,light_mode,menu,movie,pause,play_arrow,play_circle,record_voice_over,schedule,star,sync&amp;display=swap">
   <link rel="stylesheet" href="../css/main.css">
   <script>
     // Apply the saved theme before first paint (prevents a flash of the wrong theme).
@@ -57,10 +57,10 @@
   <main id="main" tabindex="-1">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#stories">Stories</a></li>
-          <li><span aria-current="page">Slow Swim</span></li>
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="../index.html">Home</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="../index.html#stories">Stories</a></li>
+          <li class="breadcrumb__item"><span aria-current="page">Slow Swim</span></li>
         </ol>
       </nav>
 
@@ -72,7 +72,7 @@
             <li class="chip">Wildlife</li>
             <li class="chip">Ocean</li>
           </ul>
-          <h1 id="story-title">Slow Swim</h1>
+          <h1 class="story-header__title" id="story-title">Slow Swim</h1>
           <p class="story-header__dek">A sea turtle glides through open blue water, turns close to the camera, then drifts away.</p>
           <p class="story-header__byline">
             <span class="story-header__avatar" aria-hidden="true">SC</span>
@@ -111,7 +111,7 @@
             </section>
 
             <div class="tabs" data-tabs>
-              <div class="tabs__list" data-tablist aria-label="Story information" hidden>
+              <div class="tabs__list" role="tablist" data-tablist aria-label="Story information" hidden>
                 <button class="tabs__tab" type="button" id="tab-transcript" aria-controls="transcript-panel"><span class="icon" aria-hidden="true">description</span>Transcript</button>
                 <button class="tabs__tab" type="button" id="tab-about" aria-controls="about-panel"><span class="icon" aria-hidden="true">info</span>About this story</button>
                 <button class="tabs__tab" type="button" id="tab-credits" aria-controls="credits-panel"><span class="icon" aria-hidden="true">groups</span>Credits &amp; access</button>
@@ -157,19 +157,19 @@
 
               <section class="tabs__panel story-notes" id="about-panel" aria-labelledby="about-title" data-tabpanel>
                 <h2 class="tabs__panel-title" id="about-title">About this story</h2>
-                <p>A short, calm clip: one sea turtle, a lot of blue water and no hurry at all. It is a good place to try the audio description if you haven’t used it before.</p>
-                <p>This clip has no sound, so the transcript and audio description tell you everything that happens on screen.</p>
+                <p class="story-notes__text">A short, calm clip: one sea turtle, a lot of blue water and no hurry at all. It is a good place to try the audio description if you haven’t used it before.</p>
+                <p class="story-notes__text">This clip has no sound, so the transcript and audio description tell you everything that happens on screen.</p>
               </section>
 
               <section class="tabs__panel" id="credits-panel" aria-labelledby="credits-title" data-tabpanel>
                 <h2 class="tabs__panel-title" id="credits-title">Credits &amp; access</h2>
                 <dl class="credits">
-                  <div><dt>Footage</dt><dd>Cloudinary sample library (<a href="https://res.cloudinary.com/dl2fjmhft/video/upload/v1781560236/samples/sea-turtle.mp4">original file</a>)</dd></div>
-                  <div><dt>Captions and description</dt><dd>Written by StoryCast from a frame-by-frame review of the clip</dd></div>
-                  <div><dt>Captions</dt><dd>WebVTT, marking the clip as silent (<a href="../assets/captions/slow-swim.en.vtt">download VTT</a>)</dd></div>
-                  <div><dt>Audio description</dt><dd>WebVTT description track, read aloud by your device (<a href="../assets/captions/slow-swim.descriptions.en.vtt">download VTT</a>)</dd></div>
-                  <div><dt>Transcript</dt><dd>Full timestamped transcript (<a href="../assets/transcripts/slow-swim.txt">download TXT</a>)</dd></div>
-                  <div><dt>Loud or flashing content</dt><dd>None. There are no flashes and no sudden loud sounds.</dd></div>
+                  <div class="credits__row"><dt class="credits__term">Footage</dt><dd class="credits__detail">Cloudinary sample library (<a href="https://res.cloudinary.com/dl2fjmhft/video/upload/v1781560236/samples/sea-turtle.mp4">original file</a>)</dd></div>
+                  <div class="credits__row"><dt class="credits__term">Captions and description</dt><dd class="credits__detail">Written by StoryCast from a frame-by-frame review of the clip</dd></div>
+                  <div class="credits__row"><dt class="credits__term">Captions</dt><dd class="credits__detail">WebVTT, marking the clip as silent (<a href="../assets/captions/slow-swim.en.vtt">download VTT</a>)</dd></div>
+                  <div class="credits__row"><dt class="credits__term">Audio description</dt><dd class="credits__detail">WebVTT description track, read aloud by your device (<a href="../assets/captions/slow-swim.descriptions.en.vtt">download VTT</a>)</dd></div>
+                  <div class="credits__row"><dt class="credits__term">Transcript</dt><dd class="credits__detail">Full timestamped transcript (<a href="../assets/transcripts/slow-swim.txt">download TXT</a>)</dd></div>
+                  <div class="credits__row"><dt class="credits__term">Loud or flashing content</dt><dd class="credits__detail">None. There are no flashes and no sudden loud sounds.</dd></div>
                 </dl>
               </section>
             </div>
@@ -253,11 +253,11 @@
             <section aria-labelledby="facts-title">
               <h2 class="story-layout__aside-title" id="facts-title">At a glance</h2>
               <dl class="facts">
-                <div class="facts__row"><dt>Format</dt><dd>Wildlife footage, no sound</dd></div>
-                <div class="facts__row"><dt>Length</dt><dd>0:15</dd></div>
-                <div class="facts__row"><dt>Spoken words</dt><dd>None</dd></div>
-                <div class="facts__row"><dt>Captions</dt><dd>English</dd></div>
-                <div class="facts__row"><dt>Audio description</dt><dd>English</dd></div>
+                <div class="facts__row"><dt class="facts__term">Format</dt><dd class="facts__detail">Wildlife footage, no sound</dd></div>
+                <div class="facts__row"><dt class="facts__term">Length</dt><dd class="facts__detail">0:15</dd></div>
+                <div class="facts__row"><dt class="facts__term">Spoken words</dt><dd class="facts__detail">None</dd></div>
+                <div class="facts__row"><dt class="facts__term">Captions</dt><dd class="facts__detail">English</dd></div>
+                <div class="facts__row"><dt class="facts__term">Audio description</dt><dd class="facts__detail">English</dd></div>
               </dl>
             </section>
           </aside>
@@ -275,23 +275,23 @@
             <img class="brand__mark" src="../assets/images/logo-mark.svg" alt="" width="40" height="40">
             <span>Story<span class="brand__accent">Cast</span></span>
           </a>
-          <p>Everyday Voices: short audio and video stories told by ordinary people. Every story comes with captions and a transcript.</p>
+          <p class="site-footer__text">Everyday Voices: short audio and video stories told by ordinary people. Every story comes with captions and a transcript.</p>
         </div>
         <nav aria-labelledby="footer-stories">
           <h2 class="site-footer__heading" id="footer-stories">Stories</h2>
           <ul class="site-footer__links">
-            <li><a href="../story/the-long-walk.html">The Long Walk</a></li>
-            <li><a href="../story/wall-dance.html">Wall Dance</a></li>
-            <li><a href="../story/slow-swim.html">Slow Swim</a></li>
-            <li><a href="../story/dawn-chorus.html">Dawn Chorus</a></li>
+            <li><a class="site-footer__link" href="../story/the-long-walk.html">The Long Walk</a></li>
+            <li><a class="site-footer__link" href="../story/wall-dance.html">Wall Dance</a></li>
+            <li><a class="site-footer__link" href="../story/slow-swim.html">Slow Swim</a></li>
+            <li><a class="site-footer__link" href="../story/dawn-chorus.html">Dawn Chorus</a></li>
           </ul>
         </nav>
         <nav aria-labelledby="footer-access">
           <h2 class="site-footer__heading" id="footer-access">StoryCast</h2>
           <ul class="site-footer__links">
-            <li><a href="../about.html#mission">Our mission</a></li>
-            <li><a href="../about.html#features">Accessibility features</a></li>
-            <li><a href="../about.html#engage">Get involved</a></li>
+            <li><a class="site-footer__link" href="../about.html#mission">Our mission</a></li>
+            <li><a class="site-footer__link" href="../about.html#features">Accessibility features</a></li>
+            <li><a class="site-footer__link" href="../about.html#engage">Get involved</a></li>
           </ul>
         </nav>
       </div>

@@ -30,16 +30,10 @@
     color: color-role('on-secondary-container');
   }
 
-  &--primary {
-    border-color: transparent;
-    background: color-role('primary-container');
-    color: color-role('on-primary-container');
-  }
-
   &--overlay {
     border-color: transparent;
-    background: rgb(0 0 0 / 0.75);
-    color: #ffffff;
+    background: color-media('scrim');
+    color: color-media('on-backdrop');
   }
 }
 

@@ -47,17 +47,12 @@
     border-radius: corner('xl');
     background: color-role('primary-container');
 
-    img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
+  }
 
-    figcaption {
-      padding: space(3) space(4);
-      @include type-role('body-small');
-      color: color-role('on-primary-container');
-    }
+  &__caption {
+    padding: space(3) space(4);
+    @include type-role('body-small');
+    color: color-role('on-primary-container');
   }
 
   // Looping background clip (muted, pausable, off under reduced motion)
@@ -76,8 +71,8 @@
     position: absolute;
     inset-block-end: space(3);
     inset-inline-end: space(3);
-    background: rgb(0 0 0 / 0.75);
-    color: #ffffff;
+    background: color-media('scrim');
+    color: color-media('on-backdrop');
   }
 }
 
@@ -89,7 +84,7 @@
   background: color-role('primary-container');
   color: color-role('on-primary-container');
 
-  h1 {
+  &__title {
     @include type-role('display-medium');
     color: inherit;
     max-width: 22ch;
@@ -98,5 +93,9 @@
   .lede,
   .eyebrow {
     color: inherit;
+  }
+
+  &__links {
+    margin-block-start: space(6);
   }
 }

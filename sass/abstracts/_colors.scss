@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // =============================================================================
 // Color tokens — Material 3 inspired "StoryCast Aurora" scheme
 // -----------------------------------------------------------------------------
@@ -103,6 +105,21 @@ $dark: (
   'scrim':                     #000000,
   'shadow':                    #000000,
 );
+
+// Fixed colours for media surfaces. Video frames and overlays sit on dark
+// footage in both themes, so these do not change with the theme.
+$media: (
+  'backdrop':     #0b0730,
+  'on-backdrop':  #ffffff,
+  'scrim':        rgb(0 0 0 / 0.75),
+  'cue':          rgb(10 5 40 / 0.85),
+);
+
+/// Read a fixed media colour.
+/// @example scss  background: colors.media('backdrop');
+@function media($name) {
+  @return map.get($media, $name);
+}
 
 /// Emit every color role as a `--md-sys-color-*` custom property.
 @mixin emit($scheme) {

@@ -92,11 +92,6 @@
   border-radius: corner('full');
   color: color-role('on-surface-variant');
 
-  &--tonal {
-    background: color-role('surface-container-highest');
-    color: color-role('on-surface');
-  }
-
   &[aria-pressed='true'],
   &[aria-expanded='true'] {
     background: color-role('primary-container');

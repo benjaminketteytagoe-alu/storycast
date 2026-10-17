@@ -6,7 +6,7 @@
   padding-block: space(6) space(8);
   max-width: 52rem;
 
-  h1 {
+  &__title {
     @include type-role('display-medium');
   }
 
@@ -76,7 +76,7 @@
     margin-block-start: space(4);
   }
 
-  p {
+  &__text {
     @include type-role('body-large');
     max-width: $type-measure;
   }
@@ -86,7 +86,7 @@
   display: grid;
   gap: space(3);
 
-  div {
+  &__row {
     display: grid;
     grid-template-columns: minmax(8rem, 12rem) 1fr;
     gap: space(4);
@@ -94,11 +94,11 @@
     border-bottom: 1px solid color-role('outline-variant');
   }
 
-  dt {
+  &__term {
     color: color-role('on-surface-variant');
   }
 
-  dd {
+  &__detail {
     margin: 0;
   }
 }
